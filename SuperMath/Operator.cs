@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    class Operator
+    /// <summary>
+    /// Enum for the different possible operators: multiply, divide, add, subtract.
+    /// </summary>
+    enum Operator
     {
+        PLUS, MINUS, MULT, DIV
     }
 }

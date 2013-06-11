@@ -8,5 +8,21 @@ namespace SuperMath
 {
     interface IProblem
     {
+        List<long> Values
+        {
+            get;
+            set;
+        }
+
+        List<Operator> Operators
+        {
+            get;
+            set;
+        }
+
+        Answer Answer
+        {
+            get;
+        }
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    interface IDistraction
+    enum Difficulty
     {
-        void distract();
+        SOFT, SEMI, HARD, RAGING, SHOVEL
     }
 }

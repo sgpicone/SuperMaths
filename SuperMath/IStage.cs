@@ -8,5 +8,12 @@ namespace SuperMath
 {
     interface IStage
     {
+        List<IProblem> Problems;
+        List<IDistraction> Distractions;
+        Difficulty difficulty
+        {
+            get;
+            set;
+        }
     }
 }

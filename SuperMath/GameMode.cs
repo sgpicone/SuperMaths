@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    interface IDistraction
+    enum GameMode
     {
-        void distract();
+        CAMPAIGN, MARATHON, QUIZ
     }
 }

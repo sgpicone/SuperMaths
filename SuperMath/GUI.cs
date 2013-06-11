@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace SuperMath
 {
-    public partial class Form1 : Form
+    public partial class GUI : Form
     {
-        public Form1()
+        public GUI()
         {
             InitializeComponent();
+        }
+
+        private void GUI_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
         }
     }
 }

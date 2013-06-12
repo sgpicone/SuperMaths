@@ -11,18 +11,25 @@ namespace SuperMath
         List<long> Values
         {
             get;
-            set;
         }
 
         List<Operator> Operators
         {
             get;
-            set;
         }
 
         Answer Answer
         {
             get;
         }
+
+        Difficulty Difficulty
+        {
+            get;
+        }
+
+        void GenerateValues();
+        void GenerateOperators();
+        bool Validate();
     }
 }

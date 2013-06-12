@@ -18,7 +18,7 @@ namespace SuperMath
         public Answer(IProblem problem)
         {
             Problem = problem;
-            //Ans = Calculate.CalcLong(this.Problem.Values, this.Problem.Operators);
+            Ans = Calculate.CalcLong(this.Problem.Values, this.Problem.Operators);
         }
 
     }

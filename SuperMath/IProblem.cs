@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    interface IProblem
+    public interface IProblem
     {
         List<long> Values
         {

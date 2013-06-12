@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    interface IStage
+    public interface IStage
     {
-        List<IProblem> Problems;
-        List<IDistraction> Distractions;
+        List<IProblem> Problems
+        {
+            get;
+            set;
+        }
+        List<IDistraction> Distractions
+        {
+            get;
+            set;
+        }
         Difficulty difficulty
         {
             get;

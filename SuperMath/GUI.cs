@@ -19,11 +19,16 @@ namespace SuperMath
 
         private void GUI_Load(object sender, EventArgs e)
         {
-            
+            List<long> values = new List<long>() { 48, 9, 2 };
+            List<Operator> ops = new List<Operator>() { Operator.DIV, Operator.MULT };
+            lblMain.Text = Calculate.CalcLong(values, ops).ToString();
         }
 
         private void btnMain_Click(object sender, EventArgs e)
         {
+            List<long> values = new List<long>() { 48, 9, 2 };
+            List<Operator> ops = new List<Operator>() { Operator.DIV, Operator.MULT };
+            lblMain.Text = Calculate.CalcDouble(values, ops).ToString();
         }
     }
 }

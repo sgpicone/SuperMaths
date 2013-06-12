@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    public interface IDistraction
+    public interface IStageFactory
     {
-        void distract();
+        IStage CreateStage();
     }
 }

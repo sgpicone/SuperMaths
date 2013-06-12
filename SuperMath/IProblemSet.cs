@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    interface IProblemSet
+    public interface IProblemSet
     {
     }
 }

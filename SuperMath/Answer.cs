@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    class Answer
+    public class Answer
     {
         IProblem Problem;
         long _Answer;
@@ -18,7 +18,7 @@ namespace SuperMath
         public Answer(IProblem problem)
         {
             Problem = problem;
-            Ans = Calculate.Calc(this.Problem.Values, this.Problem.Operators);
+            //Ans = Calculate.CalcLong(this.Problem.Values, this.Problem.Operators);
         }
 
     }

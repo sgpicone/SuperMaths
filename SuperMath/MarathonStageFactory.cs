@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    public interface IDistraction
+    class MarathonStageFactory : IStageFactory
     {
-        void distract();
+        public IStage CreateStage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

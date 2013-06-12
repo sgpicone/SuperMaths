@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    enum GameMode
+    public enum GameMode
     {
         CAMPAIGN, MARATHON, QUIZ
     }

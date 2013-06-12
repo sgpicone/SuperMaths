@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,51 +15,29 @@ namespace SuperMath
         /// <param name="vals">The values of the problem</param>
         /// <param name="ops">The operators in the problem</param>
         /// <returns></returns>
-        public static long Calc(List<long> vals, List<Operator> ops)
+        public static long CalcLong(List<long> vals, List<Operator> ops)
         {
-            long ans;
-            if (ops.Count != vals.Count - 1)
-                throw new Exception();
-            else
+            string equation = "";
+            equation += vals[0];
+            for (int i = 0; i < ops.Count; i++)
             {
-                ans = CalcPart(vals[0], vals[1], ops[0]);
-                for (int i = 1; i < ops.Count; i++)
-                {
-                    ans = CalcPart(ans, vals[i + 1], ops[i]);
-                }
+                equation += OperatorExtensions.OperatorToString(ops[i]) + vals[i+1];
             }
-            return ans;
+            long result = Convert.ToInt64(new DataTable().Compute(equation, null).ToString());
+            return result;
         }
-        /// <summary>
-        /// Calculate part of a
-        /// </summary>
-        /// <param name="valueOne"></param>
-        /// <param name="valueTwo"></param>
-        /// <param name="op"></param>
-        /// <returns></returns>
-        private static long CalcPart(long valueOne, long valueTwo, Operator op)
+
+        public static double CalcDouble(List<long> vals, List<Operator> ops)
         {
-            long ans;
-            switch (op)
+            string equation = "";
+            equation += vals[0];
+            for (int i = 0; i < ops.Count; i++)
             {
-                case Operator.PLUS:
-                    ans = valueOne + valueTwo;
-                    break;
-                case Operator.MINUS:
-                    ans = valueOne - valueTwo;
-                    break;
-                case Operator.MULT:
-                    ans = valueOne * valueTwo;
-                    break;
-                case Operator.DIV:
-                    ans = valueOne / valueTwo;
-                    break;
-                default:
-                    //this should really never happen...
-                    ans = 0;
-                    break;
+                equation += OperatorExtensions.OperatorToString(ops[i]) + vals[i + 1];
             }
-            return ans;
+            double result = Convert.ToDouble(new DataTable().Compute(equation, null).ToString());
+            result = Math.Round(result, 2);
+            return result;
         }
     }
 }

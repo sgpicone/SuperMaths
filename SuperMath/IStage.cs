@@ -11,17 +11,17 @@ namespace SuperMath
         List<IProblem> Problems
         {
             get;
-            set;
+            private set;
         }
         List<IDistraction> Distractions
         {
             get;
-            set;
+            private set;
         }
         Difficulty difficulty
         {
             get;
-            set;
+            private set;
         }
     }
 }

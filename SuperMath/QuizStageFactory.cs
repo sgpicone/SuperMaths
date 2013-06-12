@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    class QuizStageFactory : IStageFactory
+    public class QuizStageFactory : IStageFactory
     {
         public IStage CreateStage()
         {

@@ -6,82 +6,64 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    class Problem : IProblem
+    public class Problem : AProblem
     {
-        private Random RandomGenerator;
-        private List<long> _Values;
-        public List<long> Values
-        {
-            get { return _Values; }
-        }
-
-        private List<Operator> _Operators;
-        public List<Operator> Operators
-        {
-            get { return _Operators; }
-        }
-
-        private Answer _Answer;
-        public Answer Answer
-        {
-            get { return _Answer; }
-        }
-
-        private Difficulty _Difficulty;
-        public Difficulty Difficulty
-        {
-            get { return _Difficulty; }
-        }
-
         public Problem(Difficulty difficulty)
         {
             RandomGenerator = new Random();
-            this._Difficulty = difficulty;
+            this.Difficulty = difficulty;
             GenerateValues();
             GenerateOperators();
-            this._Answer = new Answer(this);
+            this.Answer = new Answer(this);
         }
 
-        public void GenerateValues()
+        protected override void GenerateValues()
         {
-            int numValues = 0;
-            int deviation = 0;
+            int numValues;
+            int deviation;
             switch (this.Difficulty)
             {
                 case Difficulty.EASY:
-                    numValues = 2;
+                    numValues = 2;  deviation = 0;
                     break;
                 case Difficulty.NORMAL:
-                    numValues = 3;
-                    deviation = 1;
+                    numValues = 3;  deviation = 1;
                     break;
                 case Difficulty.HARD:
-                    numValues = 4;
-                    deviation = 2;
+                    numValues = 4;  deviation = 2;
                     break;
                 case Difficulty.VERY_HARD:
-                    numValues = 6;
-                    deviation = 2;
+                    numValues = 6;  deviation = 2;
                     break;
                 case Difficulty.IMPOSSIBLE:
-                    numValues = 10;
-                    deviation = 3;
+                    numValues = 10; deviation = 3;
                     break;
                 default:
-                    numValues = 2;
-                    deviation = 0;
+                    numValues = 2;  deviation = 0;
                     break;
             }
-            List<long> vals = new List<long>(numValues);
-
+            numValues += RandomGenerator.Next(-deviation, deviation + 1);
+            List<long> vals = new List<long>();
+            for (int i = 0; i < numValues; i++)
+            {
+                vals.Add(RandomGenerator.Next(DifficultyExtensions.AnswerLowerBound(this.Difficulty),
+                                                DifficultyExtensions.AnswerUpperBound(this.Difficulty)));
+            }
+            this.Values = vals;
         }
 
-        public void GenerateOperators()
+        protected override void GenerateOperators()
         {
-            throw new NotImplementedException();
+            int numOperators = Values.Count - 1;
+            List<Operator> ops = new List<Operator>(numOperators);
+            for (int i = 0; i < numOperators; i++)
+            {
+                ops.Add((Operator)RandomGenerator.Next(MAX_OPERATORS));
+            }
+            Operators = ops;
         }
 
-        public bool Validate()
+        public override bool Validate()
         {
             throw new NotImplementedException();
         }

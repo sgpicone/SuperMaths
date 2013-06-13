@@ -32,11 +32,13 @@
             this.btnMain = new System.Windows.Forms.Button();
             this.lblMain = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblAnswer = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.lblAnswer);
             this.pnlMain.Controls.Add(this.btnMain);
             this.pnlMain.Controls.Add(this.lblMain);
             this.pnlMain.Location = new System.Drawing.Point(12, 264);
@@ -73,6 +75,15 @@
             this.lblTitle.Text = "Super Maths 9KK9";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblAnswer
+            // 
+            this.lblAnswer.AutoSize = true;
+            this.lblAnswer.Location = new System.Drawing.Point(374, 104);
+            this.lblAnswer.Name = "lblAnswer";
+            this.lblAnswer.Size = new System.Drawing.Size(55, 13);
+            this.lblAnswer.TabIndex = 2;
+            this.lblAnswer.Text = "ANSWER";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,6 +106,7 @@
         private System.Windows.Forms.Label lblMain;
         private System.Windows.Forms.Button btnMain;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblAnswer;
 
     }
 }

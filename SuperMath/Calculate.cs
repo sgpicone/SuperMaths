@@ -23,8 +23,9 @@ namespace SuperMath
             {
                 equation += OperatorExtensions.OperatorToString(ops[i]) + vals[i+1];
             }
-            long result = Convert.ToInt64(new DataTable().Compute(equation, null).ToString());
-            return result;
+            double result = Convert.ToDouble(new DataTable().Compute(equation, null).ToString());
+            result = Math.Round(result, 0);
+            return (long)result;
         }
 
         public static double CalcDouble(List<long> vals, List<Operator> ops)

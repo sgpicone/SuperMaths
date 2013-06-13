@@ -8,17 +8,29 @@ namespace SuperMath
 {
     public class Answer
     {
-        IProblem Problem;
-        long _Answer;
-        public long Ans
+        private AProblem _Problem;
+        public AProblem Problem
         {
-            get { return _Answer; }
-            private set { _Answer = value;  }
+            get { return _Problem; }
+            private set { _Problem = value; }
         }
-        public Answer(IProblem problem)
+
+        private double _Value;
+        public double Value
+        {
+            get { return _Value; }
+            private set { _Value = value;  }
+        }
+
+        public Answer(AProblem problem)
         {
             Problem = problem;
-            Ans = Calculate.CalcLong(this.Problem.Values, this.Problem.Operators);
+            Value = Calculate.CalcDouble(this.Problem.Values, this.Problem.Operators);
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString();
         }
 
     }

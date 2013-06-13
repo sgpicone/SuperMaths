@@ -8,20 +8,17 @@ namespace SuperMath
 {
     public interface IStage
     {
-        List<IProblem> Problems
+        List<AProblem> Problems
         {
             get;
-            private set;
         }
         List<IDistraction> Distractions
         {
             get;
-            private set;
         }
         Difficulty difficulty
         {
             get;
-            private set;
         }
     }
 }

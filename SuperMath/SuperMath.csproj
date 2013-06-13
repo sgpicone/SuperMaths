@@ -48,6 +48,7 @@
     <Compile Include="Calculate.cs" />
     <Compile Include="CampaignStage.cs" />
     <Compile Include="CampaignStageFactory.cs" />
+    <Compile Include="Problem.cs" />
     <Compile Include="Difficulty.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameMode.cs" />
@@ -62,7 +63,7 @@
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="IDistraction.cs" />
-    <Compile Include="IProblem.cs" />
+    <Compile Include="AProblem.cs" />
     <Compile Include="IProblemSet.cs" />
     <Compile Include="IStage.cs" />
     <Compile Include="Program.cs" />

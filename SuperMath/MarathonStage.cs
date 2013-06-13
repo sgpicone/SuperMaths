@@ -8,7 +8,7 @@ namespace SuperMath
 {
     public class MarathonStage : IStage
     {
-        public List<IProblem> Problems
+        public List<AProblem> Problems
         {
             get { throw new NotImplementedException(); }
         }

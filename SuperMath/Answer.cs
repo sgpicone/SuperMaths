@@ -28,6 +28,15 @@ namespace SuperMath
             Value = Calculate.CalcDouble(this.Problem.Values, this.Problem.Operators);
         }
 
+        public bool VerifyAnswer(double val, Difficulty diff)
+        {
+            double dev = DifficultyExtensions.AnswerDeviationAllowed(diff);
+            double lowBound = this.Value-(this.Value*dev);
+            double hiBound = this.Value+(this.Value*dev);
+
+            return (val >= lowBound && val <= hiBound);
+        }
+
         public override string ToString()
         {
             return Value.ToString();

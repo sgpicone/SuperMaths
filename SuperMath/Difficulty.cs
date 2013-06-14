@@ -79,6 +79,19 @@ namespace SuperMath
             }
         }
 
+        public static double AnswerDeviationAllowed(this Difficulty diff)
+        {
+            switch (diff)
+            {
+                case Difficulty.EASY:
+                case Difficulty.NORMAL: return 0;
+                case Difficulty.HARD: return .011;
+                case Difficulty.VERY_HARD: return .005;
+                case Difficulty.IMPOSSIBLE: return .001;
+                default: return 0;
+            }
+        }
+
 
     }
 }

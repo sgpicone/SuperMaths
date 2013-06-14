@@ -9,7 +9,7 @@ namespace SuperMath
     public abstract class AProblem
     {
         protected const int MAX_OPERATORS = 4;
-        protected Random RandomGenerator;
+        protected Random RandomGenerator; 
 
         private List<long> _Values;
         public List<long> Values
@@ -39,9 +39,28 @@ namespace SuperMath
             protected set { _Difficulty = value; }
         }
 
+        private Difficulty _OperatorDifficulty;
+        public Difficulty OperatorDifficulty
+        {
+            get { return _OperatorDifficulty; }
+            protected set { _OperatorDifficulty = value; }
+        }
+
+        private Difficulty _RangeDifficulty;
+        public Difficulty RangeDifficulty
+        {
+            get { return _RangeDifficulty; }
+            protected set { _RangeDifficulty = value; }
+        }
+
         protected abstract void GenerateValues();
         protected abstract void GenerateOperators();
-        public abstract bool Validate();
+        public bool Validate()
+        {
+            return (this.Answer.Value == Calculate.INVALID_ANSWER) ? false : 
+                (this.Answer.Value >= ProblemDifficultyExtensions.ProblemAnswerLowerBound(this.Difficulty) &&
+               this.Answer.Value <= ProblemDifficultyExtensions.ProblemAnswerUpperBound(this.Difficulty));
+        }
 
         public override string ToString()
         {

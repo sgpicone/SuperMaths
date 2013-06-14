@@ -30,7 +30,7 @@ namespace SuperMath
 
         public bool VerifyAnswer(double val, Difficulty diff)
         {
-            double dev = DifficultyExtensions.AnswerDeviationAllowed(diff);
+            double dev = ProblemDifficultyExtensions.ProblemAnswerDeviationAllowed(diff);
             double lowBound = this.Value-(this.Value*dev);
             double hiBound = this.Value+(this.Value*dev);
 

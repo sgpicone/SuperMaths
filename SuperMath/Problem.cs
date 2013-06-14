@@ -12,9 +12,14 @@ namespace SuperMath
         {
             RandomGenerator = new Random();
             this.Difficulty = difficulty;
-            GenerateValues();
-            GenerateOperators();
-            this.Answer = new Answer(this);
+            this.RangeDifficulty = difficulty;
+            this.OperatorDifficulty = difficulty;
+            do
+            {
+                GenerateValues();
+                GenerateOperators();
+                this.Answer = new Answer(this);
+            } while (!Validate());         
         }
 
         protected override void GenerateValues()
@@ -42,12 +47,13 @@ namespace SuperMath
                     numValues = 2;  deviation = 0;
                     break;
             }
+
             numValues += RandomGenerator.Next(-deviation, deviation + 1);
             List<long> vals = new List<long>();
             for (int i = 0; i < numValues; i++)
             {
-                vals.Add(RandomGenerator.Next(DifficultyExtensions.AnswerLowerBound(this.Difficulty),
-                                                DifficultyExtensions.AnswerUpperBound(this.Difficulty)));
+                vals.Add(RandomGenerator.Next(ProblemDifficultyExtensions.ProblemValueLowerBound(this.Difficulty),
+                                                ProblemDifficultyExtensions.ProblemValueUpperBound(this.Difficulty)));
             }
             this.Values = vals;
         }
@@ -55,17 +61,14 @@ namespace SuperMath
         protected override void GenerateOperators()
         {
             int numOperators = Values.Count - 1;
+            double operatorFrequency;
             List<Operator> ops = new List<Operator>(numOperators);
             for (int i = 0; i < numOperators; i++)
             {
-                ops.Add((Operator)RandomGenerator.Next(MAX_OPERATORS));
+                operatorFrequency = RandomGenerator.NextDouble();
+                ops.Add(ProblemDifficultyExtensions.ProblemOpByDiffAndFreq(this.Difficulty,operatorFrequency));
             }
             Operators = ops;
-        }
-
-        public override bool Validate()
-        {
-            throw new NotImplementedException();
         }
     }
 }

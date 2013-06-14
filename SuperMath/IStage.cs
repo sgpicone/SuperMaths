@@ -16,7 +16,7 @@ namespace SuperMath
         {
             get;
         }
-        Difficulty difficulty
+        Difficulty Difficulty
         {
             get;
         }

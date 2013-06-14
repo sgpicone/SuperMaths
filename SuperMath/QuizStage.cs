@@ -8,20 +8,22 @@ namespace SuperMath
 {
     public class QuizStage : IStage
     {
-
+        private List<AProblem> _Problems;
         public List<AProblem> Problems
         {
-            get { throw new NotImplementedException(); }
+            get { return _Problems; }
         }
 
+        private List<IDistraction> _Distractions;
         public List<IDistraction> Distractions
         {
-            get { throw new NotImplementedException(); }
+            get {return _Distractions; }
         }
 
-        public Difficulty difficulty
+        private Difficulty _Difficulty;
+        public Difficulty Difficulty
         {
-            get { throw new NotImplementedException(); }
+            get { return _Difficulty; }
         }
     }
 }

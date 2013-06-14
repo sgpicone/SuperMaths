@@ -36,7 +36,13 @@ namespace SuperMath
         public Difficulty Difficulty
         {
             get { return _Difficulty; }
-            protected set { _Difficulty = value; }
+            protected set { 
+                _Difficulty = value;
+                _OperatorDifficulty = value;
+                _RangeDifficulty = value;
+                _AnswerDifficulty = value;
+                _NumberOfValuesDifficulty = value;
+            }
         }
 
         private Difficulty _OperatorDifficulty;
@@ -53,8 +59,34 @@ namespace SuperMath
             protected set { _RangeDifficulty = value; }
         }
 
+        private Difficulty _AnswerDifficulty;
+        public Difficulty AnswerDifficulty
+        {
+            get { return _AnswerDifficulty; }
+            protected set { _AnswerDifficulty = value; }
+        }
+
+        private Difficulty _NumberOfValuesDifficulty;
+        public Difficulty NumberOfValuesDifficulty
+        {
+            get { return _NumberOfValuesDifficulty; }
+            protected set { _NumberOfValuesDifficulty = value; }
+        }
+
+        public void Create()
+        {
+            do
+            {
+                GenerateValues();
+                GenerateOperators();
+                this.Answer = new Answer(this);
+            } while (!Validate());
+        }
+
         protected abstract void GenerateValues();
         protected abstract void GenerateOperators();
+        public abstract bool CheckAnswer(double value);
+
         public bool Validate()
         {
             return (this.Answer.Value == Calculate.INVALID_ANSWER) ? false : 

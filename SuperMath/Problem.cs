@@ -8,25 +8,28 @@ namespace SuperMath
 {
     public class Problem : AProblem
     {
-        public Problem(Difficulty difficulty)
+        public Problem(Difficulty AbsoluteDifficulty)
         {
             RandomGenerator = new Random();
-            this.Difficulty = difficulty;
-            this.RangeDifficulty = difficulty;
-            this.OperatorDifficulty = difficulty;
-            do
-            {
-                GenerateValues();
-                GenerateOperators();
-                this.Answer = new Answer(this);
-            } while (!Validate());         
+            this.Difficulty = AbsoluteDifficulty;
+            Create();        
+        }
+
+        public Problem(Difficulty numvalsDifficulty, Difficulty rangeDifficulty, Difficulty operatorDifficulty, Difficulty answerDifficulty)
+        {
+            RandomGenerator = new Random();
+            this.NumberOfValuesDifficulty = numvalsDifficulty;
+            this.RangeDifficulty = rangeDifficulty;
+            this.OperatorDifficulty = operatorDifficulty;
+            this.AnswerDifficulty = answerDifficulty;
+            Create();
         }
 
         protected override void GenerateValues()
         {
             int numValues;
             int deviation;
-            switch (this.Difficulty)
+            switch (this.NumberOfValuesDifficulty)
             {
                 case Difficulty.EASY:
                     numValues = 2;  deviation = 0;
@@ -52,8 +55,8 @@ namespace SuperMath
             List<long> vals = new List<long>();
             for (int i = 0; i < numValues; i++)
             {
-                vals.Add(RandomGenerator.Next(ProblemDifficultyExtensions.ProblemValueLowerBound(this.Difficulty),
-                                                ProblemDifficultyExtensions.ProblemValueUpperBound(this.Difficulty)));
+                vals.Add(RandomGenerator.Next(ProblemDifficultyExtensions.ProblemValueLowerBound(this.RangeDifficulty),
+                                                ProblemDifficultyExtensions.ProblemValueUpperBound(this.RangeDifficulty)));
             }
             this.Values = vals;
         }
@@ -66,9 +69,14 @@ namespace SuperMath
             for (int i = 0; i < numOperators; i++)
             {
                 operatorFrequency = RandomGenerator.NextDouble();
-                ops.Add(ProblemDifficultyExtensions.ProblemOpByDiffAndFreq(this.Difficulty,operatorFrequency));
+                ops.Add(ProblemDifficultyExtensions.ProblemOpByDiffAndFreq(this.OperatorDifficulty,operatorFrequency));
             }
             Operators = ops;
+        }
+
+        public override bool CheckAnswer(double value)
+        {
+            return this.Answer.VerifyAnswer(value, this.AnswerDifficulty);
         }
     }
 }

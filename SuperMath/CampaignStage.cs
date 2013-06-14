@@ -18,7 +18,7 @@ namespace SuperMath
             get { throw new NotImplementedException(); }
         }
 
-        public Difficulty difficulty
+        public Difficulty Difficulty
         {
             get { throw new NotImplementedException(); }
         }

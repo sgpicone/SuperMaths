@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    public class MarathonStage : IStage
+    public class MarathonStage : AStage
     {
+        private List<AProblem> _Problems;
         public List<AProblem> Problems
         {
-            get { throw new NotImplementedException(); }
+            get { return _Problems; }
+            private set { _Problems = value; }
         }
 
+        private List<IDistraction> _Distractions;
         public List<IDistraction> Distractions
         {
-            get { throw new NotImplementedException(); }
+            get { return _Distractions; }
+            private set { _Distractions = value; }
         }
 
-        public Difficulty Difficulty
+        Difficulty _Difficulty;
+        Difficulty Difficulty
         {
-            get { throw new NotImplementedException(); }
+            get { return _Difficulty; }
+            private set { _Difficulty = value; }
         }
     }
 }

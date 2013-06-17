@@ -93,10 +93,11 @@ namespace SuperMath
         /// is allowed for the player's answer, given the difficulty of the problem
         /// 
         /// DIFFICULTY      DEVIATION
-        /// Easy/Normal     Exact answer
+        /// Easy            Within 2.5%
+        /// Normal          Within 2.0%
         /// Hard            Within 1.1%
         /// Very Hard       Within 0.5%
-        /// Impossible      Within 0.1% 
+        /// Impossible      Exact Answer
         /// </summary>
         /// <param name="diff">The difficulty of the problem</param>
         /// <returns>The deviation allowed from the answer</returns>
@@ -104,11 +105,11 @@ namespace SuperMath
         {
             switch (diff)
             {
-                case Difficulty.EASY:
-                case Difficulty.NORMAL: return 0;
-                case Difficulty.HARD: return .011;
-                case Difficulty.VERY_HARD: return .005;
-                case Difficulty.IMPOSSIBLE: return .001;
+                case Difficulty.EASY        :   return 0.025;
+                case Difficulty.NORMAL      :   return 0.020;
+                case Difficulty.HARD        :   return 0.011;
+                case Difficulty.VERY_HARD   :   return 0.005;
+                case Difficulty.IMPOSSIBLE  :   return 0;
                 default: return 0;
             }
         }

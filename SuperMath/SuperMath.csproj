@@ -96,7 +96,7 @@
       <Project>{409ae329-07d6-4d89-a210-0e8620e113e4}</Project>
       <Name>SuperMathProblem</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SuperMathsFactories\SuperMathGame.csproj">
+    <ProjectReference Include="..\SuperMathGame\SuperMathGame.csproj">
       <Project>{8a4b9882-3898-4a83-a0a2-6eed66e1f415}</Project>
       <Name>SuperMathGame</Name>
     </ProjectReference>

@@ -40,11 +40,18 @@ namespace SuperMath
                 _Difficulty = value;
                 _OperatorDifficulty = value;
                 _RangeDifficulty = value;
-                _AnswerDifficulty = value;
+                _AnswerDeviationDifficulty = value;
                 _NumberOfValuesDifficulty = value;
             }
         }
 
+        /// <summary>
+        /// The difficulty that determines what operators
+        /// are used in the problem; e.g., on easy, only addition
+        /// and subtraction are used; on impossible, addition, subtraction,
+        /// multiplication and division are all distributed evenly 
+        /// through the problem
+        /// </summary>
         private Difficulty _OperatorDifficulty;
         public Difficulty OperatorDifficulty
         {
@@ -52,6 +59,11 @@ namespace SuperMath
             protected set { _OperatorDifficulty = value; }
         }
 
+        /// <summary>
+        /// The difficulty that determines the range of values
+        /// that can be used in the problem; e.g., on easy, only
+        /// numbers between 0 and 100 are used to create the problem.
+        /// </summary>
         private Difficulty _RangeDifficulty;
         public Difficulty RangeDifficulty
         {
@@ -59,13 +71,20 @@ namespace SuperMath
             protected set { _RangeDifficulty = value; }
         }
 
-        private Difficulty _AnswerDifficulty;
-        public Difficulty AnswerDifficulty
+        /// <summary>
+        /// The allowed deviation from the answer; e.g., on hard, answers within
+        /// 1.1% of the exact answer are accepted
+        /// </summary>
+        private Difficulty _AnswerDeviationDifficulty;
+        public Difficulty AnswerDeviationDifficulty
         {
-            get { return _AnswerDifficulty; }
-            protected set { _AnswerDifficulty = value; }
+            get { return _AnswerDeviationDifficulty; }
+            protected set { _AnswerDeviationDifficulty = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private Difficulty _NumberOfValuesDifficulty;
         public Difficulty NumberOfValuesDifficulty
         {
@@ -87,6 +106,11 @@ namespace SuperMath
         protected abstract void GenerateOperators();
         public abstract bool CheckAnswer(double value);
 
+        /// <summary>
+        /// Verifies that the generated problem's answer falls between the accepted
+        /// range of answers for this problem's difficulty.
+        /// </summary>
+        /// <returns></returns>
         public bool Validate()
         {
             return (this.Answer.Value == Calculate.INVALID_ANSWER) ? false : 

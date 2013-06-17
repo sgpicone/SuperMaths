@@ -8,6 +8,6 @@ namespace SuperMath
 {
     public interface IStageFactory
     {
-        IStage CreateStage();
+        AStage CreateStage();
     }
 }

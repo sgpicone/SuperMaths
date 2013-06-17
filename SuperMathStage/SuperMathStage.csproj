@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="CampaignStage.cs" />
     <Compile Include="CampaignStageFactory.cs" />
-    <Compile Include="IStage.cs" />
+    <Compile Include="AStage.cs" />
     <Compile Include="IStageFactory.cs" />
     <Compile Include="MarathonStage.cs" />
     <Compile Include="MarathonStageFactory.cs" />

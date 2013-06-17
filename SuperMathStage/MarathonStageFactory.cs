@@ -8,7 +8,7 @@ namespace SuperMath
 {
     public class MarathonStageFactory : IStageFactory
     {
-        public IStage CreateStage()
+        public AStage CreateStage()
         {
             return new MarathonStage();
         }

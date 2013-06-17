@@ -8,7 +8,7 @@ namespace SuperMath
 {
     public abstract class AGame
     {
-        protected List<IStage> levels; //list of levels
+        protected List<AStage> levels; //list of levels
         protected GameMode gameMode;
         protected KeyValuePair<DifficultyType, Difficulty> GameDifficulties;
         protected Difficulty RangeDifficulty, //Difficulty for the range of possible answers (0-100, negatives, etc) 

@@ -24,6 +24,13 @@ namespace SuperMath
             int pluses, minuses, mults, divs;
             Problem p;
 
+            Console.WriteLine("Enter -2");
+            string input = Console.ReadLine();
+            double jerk = Convert.ToDouble(input);
+            if (jerk < 0)
+                Console.WriteLine(jerk + " is less than 0");
+
+
             //Console.WriteLine("RUN\tFREQ\tOP\tDIFFICULTY");
             //diff = Difficulty.EASY;
             //pluses = 0; minuses = 0; mults = 0; divs = 0;
@@ -242,11 +249,11 @@ namespace SuperMath
             //Console.ReadKey();
             //Console.Clear();
 
-            Console.WriteLine("Try and answer this: ");
+            Console.WriteLine("Try and answer this: (EasyVal, ImpRng, EasyOp, HardAns)");
             p = new Problem(Difficulty.EASY, Difficulty.IMPOSSIBLE, Difficulty.EASY, Difficulty.HARD);
             Console.WriteLine(p.ToString());
             Console.Write("Answer: ");
-            string input = Console.ReadLine();
+            input = Console.ReadLine();
             while (!p.CheckAnswer(Convert.ToDouble(input)))
             {
                 Console.WriteLine("Try again.");
@@ -256,7 +263,7 @@ namespace SuperMath
             Console.WriteLine("Good job.");
 
 
-            Console.WriteLine("Try and answer this: ");
+            Console.WriteLine("Try and answer this: (EasyVal, EasyRng, EasyOp, EasyAns)");
             p = new Problem(Difficulty.EASY);
             Console.WriteLine(p.ToString());
             Console.Write("Answer: ");
@@ -269,7 +276,7 @@ namespace SuperMath
             }
             Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: ");
+            Console.WriteLine("Try and answer this: (NORMAL)");
             p = new Problem(Difficulty.NORMAL);
             Console.WriteLine(p.ToString());
             Console.Write("Answer: ");
@@ -282,7 +289,7 @@ namespace SuperMath
             }
             Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: ");
+            Console.WriteLine("Try and answer this: (HARD) ");
             p = new Problem(Difficulty.HARD);
             Console.WriteLine(p.ToString());
             Console.Write("Answer: ");
@@ -295,7 +302,7 @@ namespace SuperMath
             }
             Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: ");
+            Console.WriteLine("Try and answer this: (VERY HARD)");
             p = new Problem(Difficulty.VERY_HARD);
             Console.WriteLine(p.ToString());
             Console.Write("Answer: ");
@@ -308,7 +315,7 @@ namespace SuperMath
             }
             Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: ");
+            Console.WriteLine("Try and answer this: (IMPOSSIBLE)");
             p = new Problem(Difficulty.IMPOSSIBLE);
             Console.WriteLine(p.ToString());
             Console.Write("Answer: ");

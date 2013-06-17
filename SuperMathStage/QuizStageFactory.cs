@@ -8,7 +8,7 @@ namespace SuperMath
 {
     public class QuizStageFactory : IStageFactory
     {
-        public IStage CreateStage()
+        public AStage CreateStage()
         {
             return new QuizStage();
         }

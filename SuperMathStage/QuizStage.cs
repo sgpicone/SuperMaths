@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    public class QuizStage : IStage
+    public class QuizStage : AStage
     {
         private List<AProblem> _Problems;
         public List<AProblem> Problems

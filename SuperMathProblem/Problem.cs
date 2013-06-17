@@ -21,7 +21,7 @@ namespace SuperMath
             this.NumberOfValuesDifficulty = numvalsDifficulty;
             this.RangeDifficulty = rangeDifficulty;
             this.OperatorDifficulty = operatorDifficulty;
-            this.AnswerDifficulty = answerDifficulty;
+            this.AnswerDeviationDifficulty = answerDifficulty;
             Create();
         }
 
@@ -76,7 +76,7 @@ namespace SuperMath
 
         public override bool CheckAnswer(double value)
         {
-            return this.Answer.VerifyAnswer(value, this.AnswerDifficulty);
+            return this.Answer.VerifyAnswer(value, this.AnswerDeviationDifficulty);
         }
     }
 }

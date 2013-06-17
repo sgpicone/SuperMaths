@@ -3,6 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMath", "SuperMath\SuperMath.csproj", "{51ABDFEF-C50E-4754-827F-9D5E0C774B5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMathGame", "SuperMathGame\SuperMathGame.csproj", "{8A4B9882-3898-4A83-A0A2-6EED66E1F415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMathStage", "SuperMathStage\SuperMathStage.csproj", "{D79EEC51-B075-4534-BBD8-4CA03CEC3753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMathDifficulty", "SuperMathDifficulty\SuperMathDifficulty.csproj", "{652E8D77-06B9-4892-B455-C008CC896C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMathProblem", "SuperMathProblem\SuperMathProblem.csproj", "{409AE329-07D6-4D89-A210-0E8620E113E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMathUtils", "SuperMathTools\SuperMathUtils.csproj", "{DCBA815F-0C9B-4E2C-8A58-6B4E1A314927}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMathDistraction", "SuperMathDistraction\SuperMathDistraction.csproj", "{B7F39F61-5CA6-402C-AD7E-5B7B29040910}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +25,30 @@ Global
 		{51ABDFEF-C50E-4754-827F-9D5E0C774B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51ABDFEF-C50E-4754-827F-9D5E0C774B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51ABDFEF-C50E-4754-827F-9D5E0C774B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A4B9882-3898-4A83-A0A2-6EED66E1F415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A4B9882-3898-4A83-A0A2-6EED66E1F415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A4B9882-3898-4A83-A0A2-6EED66E1F415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A4B9882-3898-4A83-A0A2-6EED66E1F415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D79EEC51-B075-4534-BBD8-4CA03CEC3753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D79EEC51-B075-4534-BBD8-4CA03CEC3753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D79EEC51-B075-4534-BBD8-4CA03CEC3753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D79EEC51-B075-4534-BBD8-4CA03CEC3753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{652E8D77-06B9-4892-B455-C008CC896C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{652E8D77-06B9-4892-B455-C008CC896C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{652E8D77-06B9-4892-B455-C008CC896C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{652E8D77-06B9-4892-B455-C008CC896C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409AE329-07D6-4D89-A210-0E8620E113E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409AE329-07D6-4D89-A210-0E8620E113E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409AE329-07D6-4D89-A210-0E8620E113E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409AE329-07D6-4D89-A210-0E8620E113E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCBA815F-0C9B-4E2C-8A58-6B4E1A314927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCBA815F-0C9B-4E2C-8A58-6B4E1A314927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCBA815F-0C9B-4E2C-8A58-6B4E1A314927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCBA815F-0C9B-4E2C-8A58-6B4E1A314927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F39F61-5CA6-402C-AD7E-5B7B29040910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F39F61-5CA6-402C-AD7E-5B7B29040910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F39F61-5CA6-402C-AD7E-5B7B29040910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F39F61-5CA6-402C-AD7E-5B7B29040910}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

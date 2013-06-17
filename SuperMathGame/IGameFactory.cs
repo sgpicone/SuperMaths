@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    enum DifficultyType
+    public interface IGameFactory
     {
-        ANS_RANGE, VAL_RANGE, NUM_VALS, NUM_PROBS, OPERATOR, TIME, DISTRACTION
+        AGame CreateGame();
     }
 }

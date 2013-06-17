@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{51ABDFEF-C50E-4754-827F-9D5E0C774B5C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{8A4B9882-3898-4A83-A0A2-6EED66E1F415}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SuperMath</RootNamespace>
-    <AssemblyName>SuperMath</AssemblyName>
+    <RootNamespace>SuperMathGame</RootNamespace>
+    <AssemblyName>SuperMathGame</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,16 +22,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,72 +36,28 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI.Designer.cs">
-      <DependentUpon>GUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="AGame.cs" />
+    <Compile Include="CampaignGame.cs" />
+    <Compile Include="CampaignGameFactory.cs" />
+    <Compile Include="GameMode.cs" />
+    <Compile Include="IGameFactory.cs" />
+    <Compile Include="MarathonGame.cs" />
+    <Compile Include="MarathonGameFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI.resx">
-      <DependentUpon>GUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <Compile Include="QuizGame.cs" />
+    <Compile Include="QuizGameFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SuperMathDifficulty\SuperMathDifficulty.csproj">
       <Project>{652e8d77-06b9-4892-b455-c008cc896c34}</Project>
       <Name>SuperMathDifficulty</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SuperMathDistraction\SuperMathDistraction.csproj">
-      <Project>{b7f39f61-5ca6-402c-ad7e-5b7b29040910}</Project>
-      <Name>SuperMathDistraction</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SuperMathProblem\SuperMathProblem.csproj">
-      <Project>{409ae329-07d6-4d89-a210-0e8620e113e4}</Project>
-      <Name>SuperMathProblem</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SuperMathsFactories\SuperMathGame.csproj">
-      <Project>{8a4b9882-3898-4a83-a0a2-6eed66e1f415}</Project>
-      <Name>SuperMathGame</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SuperMathStage\SuperMathStage.csproj">
       <Project>{d79eec51-b075-4534-bbd8-4ca03cec3753}</Project>
       <Name>SuperMathStage</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SuperMathTools\SuperMathUtils.csproj">
-      <Project>{dcba815f-0c9b-4e2c-8a58-6b4e1a314927}</Project>
-      <Name>SuperMathUtils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

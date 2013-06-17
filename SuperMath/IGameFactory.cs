@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    public class CampaignStageFactory : IStageFactory
+    public interface IGameFactory
     {
-        public IStage CreateStage()
-        {
-            return new CampaignStage();
-        }
+        public AGame CreateGame();
     }
 }

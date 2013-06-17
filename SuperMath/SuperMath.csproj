@@ -49,11 +49,17 @@
   <ItemGroup>
     <Compile Include="Answer.cs" />
     <Compile Include="Calculate.cs" />
+    <Compile Include="CampaignGame.cs" />
+    <Compile Include="CampaignGameFactory.cs" />
     <Compile Include="CampaignStage.cs" />
     <Compile Include="CampaignStageFactory.cs" />
+    <Compile Include="DifficultyType.cs" />
+    <Compile Include="IGameFactory.cs" />
+    <Compile Include="MarathonGame.cs" />
+    <Compile Include="MarathonGameFactory.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Difficulty.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="AGame.cs" />
     <Compile Include="GameMode.cs" />
     <Compile Include="IStageFactory.cs" />
     <Compile Include="MarathonStage.cs" />
@@ -72,6 +78,8 @@
     <Compile Include="ProblemDifficultyExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuizGame.cs" />
+    <Compile Include="QuizGameFactory.cs" />
     <Compile Include="QuizStage.cs" />
     <Compile Include="QuizStageFactory.cs" />
     <Compile Include="StageDifficultyExtensions.cs" />

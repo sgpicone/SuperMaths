@@ -10,7 +10,7 @@ namespace SuperMath
     {
         public IStage CreateStage()
         {
-            throw new NotImplementedException();
+            return new MarathonStage();
         }
     }
 }

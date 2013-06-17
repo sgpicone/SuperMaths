@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace SuperMath
 {
-    public class CampaignStageFactory : IStageFactory
+    enum DifficultyType
     {
-        public IStage CreateStage()
-        {
-            return new CampaignStage();
-        }
+        ANS_RANGE, VAL_RANGE, NUM_VALS, NUM_PROBS, OPERATOR, TIME, DISTRACTION
     }
 }

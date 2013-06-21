@@ -22,5 +22,10 @@ namespace SuperMath
         {
             get { throw new NotImplementedException(); }
         }
+
+        public override void PrepareStage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

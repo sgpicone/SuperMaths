@@ -76,6 +76,6 @@ namespace SuperMath
         /// Populate the stage with a list of problems
         /// based on the difficulty of the stage
         /// </summary>
-        void PrepareStage();
+        public abstract void PrepareStage();
     }
 }

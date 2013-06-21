@@ -140,5 +140,80 @@ namespace SuperMath
                 default: return 0;
             }
         }
+
+        /// <summary>
+        /// Returns the base number of values to use when creating a problem
+        /// of the given difficulty
+        /// </summary>
+        /// <param name="diff">The difficulty of the problem</param>
+        /// <returns>The base number of values for the problem, based on the difficulty</returns>
+        public static int ProblemNumberOfValues(this Difficulty diff)
+        {
+            int numValues;
+            switch (diff)
+            {
+                case Difficulty.EASY:
+                    numValues = 2;
+                    break;
+                case Difficulty.NORMAL:
+                    numValues = 3;
+                    break;
+                case Difficulty.HARD:
+                    numValues = 4;
+                    break;
+                case Difficulty.VERY_HARD:
+                    numValues = 6;
+                    break;
+                case Difficulty.IMPOSSIBLE:
+                    numValues = 10; 
+                    break;
+                default:
+                    numValues = 2; 
+                    break;
+            }
+            return numValues;
+        }
+
+        /// <summary>
+        /// Returns the deviation of number of values to use when creating a problem
+        /// of the given difficulty.
+        /// With the deviation, each problem of a difficulty may not necessarily have the
+        /// same number of values every time:
+        /// 
+        /// DIFFICULTY      BASE        DEV         RANGE
+        /// Easy            2           0           2
+        /// Normal          3           1           2-4
+        /// Hard            4           2           2-6
+        /// Very Hard       6           2           4-8
+        /// Impossible      10          3           7-13
+        /// </summary>
+        /// <param name="diff">The difficulty of the problem</param>
+        /// <returns>The allowed deviation from the base number of values for the problem</returns>
+        public static int ProblemNumberOfValuesDeviation(this Difficulty diff)
+        {
+            int deviation;
+            switch (diff)
+            {
+                case Difficulty.EASY:
+                    deviation = 0;
+                    break;
+                case Difficulty.NORMAL:
+                    deviation = 1;
+                    break;
+                case Difficulty.HARD:
+                    deviation = 2;
+                    break;
+                case Difficulty.VERY_HARD:
+                    deviation = 2;
+                    break;
+                case Difficulty.IMPOSSIBLE:
+                    deviation = 3;
+                    break;
+                default:
+                    deviation = 0;
+                    break;
+            }
+            return deviation;
+        }
     }
 }

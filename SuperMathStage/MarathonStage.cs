@@ -22,11 +22,16 @@ namespace SuperMath
             private set { _Distractions = value; }
         }
 
-        Difficulty _Difficulty;
-        Difficulty Difficulty
+        private Difficulty _Difficulty;
+        public Difficulty Difficulty
         {
             get { return _Difficulty; }
             private set { _Difficulty = value; }
+        }
+
+        public override void PrepareStage()
+        {
+            throw new NotImplementedException();
         }
     }
 }

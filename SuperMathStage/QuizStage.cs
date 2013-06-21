@@ -25,5 +25,10 @@ namespace SuperMath
         {
             get { return _Difficulty; }
         }
+
+        public override void PrepareStage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

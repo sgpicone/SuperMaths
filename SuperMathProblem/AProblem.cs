@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SuperMath;
+using SuperMathDifficulty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,65 +34,77 @@ namespace SuperMath
             protected set { _Answer = value; }
         }
 
-        private Difficulty _Difficulty;
-        public Difficulty Difficulty
+        private DifficultyScheme _DifficultyScheme;
+        public DifficultyScheme DifficultyScheme
         {
-            get { return _Difficulty; }
-            protected set { 
-                _Difficulty = value;
-                _OperatorDifficulty = value;
-                _RangeDifficulty = value;
-                _AnswerDeviationDifficulty = value;
-                _NumberOfValuesDifficulty = value;
+            get { return _DifficultyScheme; }
+            protected set
+            {
+                _DifficultyScheme = value;
             }
         }
 
-        /// <summary>
-        /// The difficulty that determines what operators
-        /// are used in the problem; e.g., on easy, only addition
-        /// and subtraction are used; on impossible, addition, subtraction,
-        /// multiplication and division are all distributed evenly 
-        /// through the problem
-        /// </summary>
-        private Difficulty _OperatorDifficulty;
-        public Difficulty OperatorDifficulty
-        {
-            get { return _OperatorDifficulty; }
-            protected set { _OperatorDifficulty = value; }
-        }
+        //private DifficultyScheme _DifficultyScheme;
+        //public DifficultyScheme DifficultyScheme
+        //{
+        //    get { return _DifficultyScheme; }
+        //    protected set
+        //    {
+        //        _DifficultyScheme = value;
+        //        _OperatorDifficulty = value;
+        //        _RangeDifficulty = value;
+        //        _AnswerDeviationDifficulty = value;
+        //        _NumberOfValuesDifficulty = value;
+        //    }
+        //}
 
-        /// <summary>
-        /// The difficulty that determines the range of values
-        /// that can be used in the problem; e.g., on easy, only
-        /// numbers between 0 and 100 are used to create the problem.
-        /// </summary>
-        private Difficulty _RangeDifficulty;
-        public Difficulty RangeDifficulty
-        {
-            get { return _RangeDifficulty; }
-            protected set { _RangeDifficulty = value; }
-        }
+        ///// <summary>
+        ///// The difficulty that determines what operators
+        ///// are used in the problem; e.g., on easy, only addition
+        ///// and subtraction are used; on impossible, addition, subtraction,
+        ///// multiplication and division are all distributed evenly 
+        ///// through the problem
+        ///// </summary>
+        //private Difficulty _OperatorDifficulty;
+        //public Difficulty OperatorDifficulty
+        //{
+        //    get { return _OperatorDifficulty; }
+        //    protected set { _OperatorDifficulty = value; }
+        //}
 
-        /// <summary>
-        /// The allowed deviation from the answer; e.g., on hard, answers within
-        /// 1.1% of the exact answer are accepted
-        /// </summary>
-        private Difficulty _AnswerDeviationDifficulty;
-        public Difficulty AnswerDeviationDifficulty
-        {
-            get { return _AnswerDeviationDifficulty; }
-            protected set { _AnswerDeviationDifficulty = value; }
-        }
+        ///// <summary>
+        ///// The difficulty that determines the range of values
+        ///// that can be used in the problem; e.g., on easy, only
+        ///// numbers between 0 and 100 are used to create the problem.
+        ///// </summary>
+        //private Difficulty _RangeDifficulty;
+        //public Difficulty RangeDifficulty
+        //{
+        //    get { return _RangeDifficulty; }
+        //    protected set { _RangeDifficulty = value; }
+        //}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private Difficulty _NumberOfValuesDifficulty;
-        public Difficulty NumberOfValuesDifficulty
-        {
-            get { return _NumberOfValuesDifficulty; }
-            protected set { _NumberOfValuesDifficulty = value; }
-        }
+        ///// <summary>
+        ///// The allowed deviation from the answer; e.g., on hard, answers within
+        ///// 1.1% of the exact answer are accepted
+        ///// </summary>
+        //private Difficulty _AnswerDeviationDifficulty;
+        //public Difficulty AnswerDeviationDifficulty
+        //{
+        //    get { return _AnswerDeviationDifficulty; }
+        //    protected set { _AnswerDeviationDifficulty = value; }
+        //}
+
+        ///// <summary>
+        ///// The difficulty that determines the number of values used in the problem.
+        ///// Ranges from 2 to 13.
+        ///// </summary>
+        //private Difficulty _NumberOfValuesDifficulty;
+        //public Difficulty NumberOfValuesDifficulty
+        //{
+        //    get { return _NumberOfValuesDifficulty; }
+        //    protected set { _NumberOfValuesDifficulty = value; }
+        //}
 
         public void Create()
         {
@@ -114,8 +128,8 @@ namespace SuperMath
         public bool Validate()
         {
             return (this.Answer.Value == Calculate.INVALID_ANSWER) ? false : 
-                (this.Answer.Value >= ProblemDifficultyExtensions.ProblemAnswerLowerBound(this.Difficulty) &&
-               this.Answer.Value <= ProblemDifficultyExtensions.ProblemAnswerUpperBound(this.Difficulty));
+                (this.Answer.Value >= ProblemDifficultyExtensions.ProblemAnswerLowerBound(this.DifficultyScheme.AnswerRangeDifficulty) &&
+               this.Answer.Value <= ProblemDifficultyExtensions.ProblemAnswerUpperBound(this.DifficultyScheme.AnswerRangeDifficulty));
         }
 
         public override string ToString()

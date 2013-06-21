@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SuperMath;
+using SuperMathDifficulty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,55 +10,24 @@ namespace SuperMath
 {
     public class Problem : AProblem
     {
-        public Problem(Difficulty AbsoluteDifficulty)
+        public Problem(DifficultyScheme diffScheme)
         {
             RandomGenerator = new Random();
-            this.Difficulty = AbsoluteDifficulty;
-            Create();        
-        }
-
-        public Problem(Difficulty numvalsDifficulty, Difficulty rangeDifficulty, Difficulty operatorDifficulty, Difficulty answerDifficulty)
-        {
-            RandomGenerator = new Random();
-            this.NumberOfValuesDifficulty = numvalsDifficulty;
-            this.RangeDifficulty = rangeDifficulty;
-            this.OperatorDifficulty = operatorDifficulty;
-            this.AnswerDeviationDifficulty = answerDifficulty;
+            this.DifficultyScheme = diffScheme;
             Create();
         }
 
         protected override void GenerateValues()
         {
-            int numValues;
-            int deviation;
-            switch (this.NumberOfValuesDifficulty)
-            {
-                case Difficulty.EASY:
-                    numValues = 2;  deviation = 0;
-                    break;
-                case Difficulty.NORMAL:
-                    numValues = 3;  deviation = 1;
-                    break;
-                case Difficulty.HARD:
-                    numValues = 4;  deviation = 2;
-                    break;
-                case Difficulty.VERY_HARD:
-                    numValues = 6;  deviation = 2;
-                    break;
-                case Difficulty.IMPOSSIBLE:
-                    numValues = 10; deviation = 3;
-                    break;
-                default:
-                    numValues = 2;  deviation = 0;
-                    break;
-            }
+            int numValues = ProblemDifficultyExtensions.ProblemNumberOfValues(this.DifficultyScheme.NumberOfValuesDifficulty);
+            int deviation = ProblemDifficultyExtensions.ProblemNumberOfValuesDeviation(this.DifficultyScheme.NumberOfValuesDifficulty);
 
             numValues += RandomGenerator.Next(-deviation, deviation + 1);
             List<long> vals = new List<long>();
             for (int i = 0; i < numValues; i++)
             {
-                vals.Add(RandomGenerator.Next(ProblemDifficultyExtensions.ProblemValueLowerBound(this.RangeDifficulty),
-                                                ProblemDifficultyExtensions.ProblemValueUpperBound(this.RangeDifficulty)));
+                vals.Add(RandomGenerator.Next(ProblemDifficultyExtensions.ProblemValueLowerBound(this.DifficultyScheme.RangeDifficulty),
+                                                ProblemDifficultyExtensions.ProblemValueUpperBound(this.DifficultyScheme.RangeDifficulty)));
             }
             this.Values = vals;
         }
@@ -69,14 +40,14 @@ namespace SuperMath
             for (int i = 0; i < numOperators; i++)
             {
                 operatorFrequency = RandomGenerator.NextDouble();
-                ops.Add(ProblemDifficultyExtensions.ProblemOpByDiffAndFreq(this.OperatorDifficulty,operatorFrequency));
+                ops.Add(ProblemDifficultyExtensions.ProblemOpByDiffAndFreq(this.DifficultyScheme.OperatorDifficulty,operatorFrequency));
             }
             Operators = ops;
         }
 
         public override bool CheckAnswer(double value)
         {
-            return this.Answer.VerifyAnswer(value, this.AnswerDeviationDifficulty);
+            return this.Answer.VerifyAnswer(value, this.DifficultyScheme.AnswerDeviationDifficulty);
         }
     }
 }

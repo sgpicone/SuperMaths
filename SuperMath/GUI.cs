@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperMathDifficulty;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,7 @@ namespace SuperMath
 
         private void btnMain_Click(object sender, EventArgs e)
         {
-            AProblem p = new Problem(Difficulty.HARD);
+            AProblem p = new Problem(new DifficultyScheme(Difficulty.HARD));
             lblMain.Text = p.ToString();
             lblAnswer.Text = p.Answer.ToString();
         }

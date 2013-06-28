@@ -1,4 +1,5 @@
-﻿using SuperMath.Difficulty;
+﻿using SuperMathDifficulty;
+using SuperMathProblem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +20,88 @@ namespace SuperMath
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new GUI());
-            Random r = new Random();
-            double freq;
-            Difficulty diff;
-            int pluses, minuses, mults, divs;
-            Problem p;
+            bool adult = false;
+            Difficulty diff = Difficulty.EASY;
+            Problem p = new Problem(diff);
+            string input;
+            int points = 0;
+            for (int i = 0; i < 2; i++)
+            {
+                Console.WriteLine(diff.DifficultyToString(adult) + ": " + p + " = " + p.Answer);
+                Console.Write("Answer: ");
+                input = Console.ReadLine();
+                while (!p.CheckAnswer(Convert.ToDouble(input)))
+                {
+                    Console.WriteLine("Try again.");
+                    Console.Write("Answer: ");
+                    input = Console.ReadLine();
+                }
+                Console.WriteLine("Good job. You earned " + p.PossiblePointEarnings() + " points.");
+                points += p.PossiblePointEarnings();
 
-            Console.WriteLine("Enter -2");
-            string input = Console.ReadLine();
-            double jerk = Convert.ToDouble(input);
-            if (jerk < 0)
-                Console.WriteLine(jerk + " is less than 0");
+                diff = Difficulty.NORMAL;
+                p = new Problem(diff);
+                Console.WriteLine(diff.DifficultyToString(adult) + ": " + p + " = " + p.Answer);
+                Console.Write("Answer: ");
+                input = Console.ReadLine();
+                while (!p.CheckAnswer(Convert.ToDouble(input)))
+                {
+                    Console.WriteLine("Try again.");
+                    Console.Write("Answer: ");
+                    input = Console.ReadLine();
+                }
+                Console.WriteLine("Good job. You earned " + p.PossiblePointEarnings() + " points.");
+                points += p.PossiblePointEarnings();
 
+                diff = Difficulty.HARD;
+                p = new Problem(diff);
+                Console.WriteLine(diff.DifficultyToString(adult) + ": " + p + " = " + p.Answer);
+                Console.Write("Answer: ");
+                input = Console.ReadLine();
+                while (!p.CheckAnswer(Convert.ToDouble(input)))
+                {
+                    Console.WriteLine("Try again.");
+                    Console.Write("Answer: ");
+                    input = Console.ReadLine();
+                }
+                Console.WriteLine("Good job. You earned " + p.PossiblePointEarnings() + " points.");
+                points += p.PossiblePointEarnings();
+
+                diff = Difficulty.VERY_HARD;
+                p = new Problem(diff);
+                Console.WriteLine(diff.DifficultyToString(adult) + ": " + p + " = " + p.Answer);
+                Console.Write("Answer: ");
+                input = Console.ReadLine();
+                while (!p.CheckAnswer(Convert.ToDouble(input)))
+                {
+                    Console.WriteLine("Try again.");
+                    Console.Write("Answer: ");
+                    input = Console.ReadLine();
+                }
+                Console.WriteLine("Good job. You earned " + p.PossiblePointEarnings() + " points.");
+                points += p.PossiblePointEarnings();
+
+                diff = Difficulty.IMPOSSIBLE;
+                p = new Problem(diff);
+                Console.WriteLine(diff.DifficultyToString(adult) + ": " + p + " = " + p.Answer);
+                Console.Write("Answer: ");
+                input = Console.ReadLine();
+                while (!p.CheckAnswer(Convert.ToDouble(input)))
+                {
+                    Console.WriteLine("Try again.");
+                    Console.Write("Answer: ");
+                    input = Console.ReadLine();
+                }
+                Console.WriteLine("Good job. You earned " + p.PossiblePointEarnings() + " points.");
+                points += p.PossiblePointEarnings();
+
+                diff = Difficulty.EASY;
+                p = new Problem(diff);
+                adult = !adult;
+                Console.WriteLine("\n");
+            }
+
+            Console.WriteLine("You earned " + points + " points.");
 
             //Console.WriteLine("RUN\tFREQ\tOP\tDIFFICULTY");
             //diff = Difficulty.EASY;
@@ -249,87 +320,87 @@ namespace SuperMath
             //}
             //Console.ReadKey();
             //Console.Clear();
-            DifficultyScheme easy = new DifficultyScheme(Difficulty.EASY);
-            DifficultyScheme donk = new DifficultyScheme(Difficulty.EASY, Difficulty.EASY, Difficulty.IMPOSSIBLE, Difficulty.EASY, Difficulty.VERY_HARD);
+            //DifficultyScheme easy = new DifficultyScheme(Difficulty.EASY);
+            //DifficultyScheme donk = new DifficultyScheme(Difficulty.EASY, Difficulty.EASY, Difficulty.IMPOSSIBLE, Difficulty.EASY, Difficulty.VERY_HARD);
 
-            Console.WriteLine("Try and answer this: (EasyVal, ImpRng, EasyOp, HardAns)");
-            p = new Problem(donk);
-            Console.WriteLine(p.ToString());
-            Console.Write("Answer: ");
-            input = Console.ReadLine();
-            while (!p.CheckAnswer(Convert.ToDouble(input)))
-            {
-                Console.WriteLine("Try again.");
-                Console.Write("Answer: ");
-                input = Console.ReadLine();
-            }
-            Console.WriteLine("Good job.");
+            //Console.WriteLine("Try and answer this: (EasyVal, ImpRng, EasyOp, HardAns)");
+            //p = new Problem(donk);
+            //Console.WriteLine(p.ToString());
+            //Console.Write("Answer: ");
+            //input = Console.ReadLine();
+            //while (!p.CheckAnswer(Convert.ToDouble(input)))
+            //{
+            //    Console.WriteLine("Try again.");
+            //    Console.Write("Answer: ");
+            //    input = Console.ReadLine();
+            //}
+            //Console.WriteLine("Good job.");
 
 
-            Console.WriteLine("Try and answer this: (EasyVal, EasyRng, EasyOp, EasyAns)");
-            p = new Problem(easy);
-            Console.WriteLine(p.ToString());
-            Console.Write("Answer: ");
-            input = Console.ReadLine();
-            while (!p.CheckAnswer(Convert.ToDouble(input)))
-            {
-                Console.WriteLine("Try again.");
-                Console.Write("Answer: ");
-                input = Console.ReadLine();
-            }
-            Console.WriteLine("Good job.");
+            //Console.WriteLine("Try and answer this: (EasyVal, EasyRng, EasyOp, EasyAns)");
+            //p = new Problem(easy);
+            //Console.WriteLine(p.ToString());
+            //Console.Write("Answer: ");
+            //input = Console.ReadLine();
+            //while (!p.CheckAnswer(Convert.ToDouble(input)))
+            //{
+            //    Console.WriteLine("Try again.");
+            //    Console.Write("Answer: ");
+            //    input = Console.ReadLine();
+            //}
+            //Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: (NORMAL)");
-            p = new Problem(easy);
-            Console.WriteLine(p.ToString());
-            Console.Write("Answer: ");
-            input = Console.ReadLine();
-            while (!p.CheckAnswer(Convert.ToDouble(input)))
-            {
-                Console.WriteLine("Try again.");
-                Console.Write("Answer: ");
-                input = Console.ReadLine();
-            }
-            Console.WriteLine("Good job.");
+            //Console.WriteLine("Try and answer this: (NORMAL)");
+            //p = new Problem(easy);
+            //Console.WriteLine(p.ToString());
+            //Console.Write("Answer: ");
+            //input = Console.ReadLine();
+            //while (!p.CheckAnswer(Convert.ToDouble(input)))
+            //{
+            //    Console.WriteLine("Try again.");
+            //    Console.Write("Answer: ");
+            //    input = Console.ReadLine();
+            //}
+            //Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: (HARD) ");
-            p = new Problem(easy);
-            Console.WriteLine(p.ToString());
-            Console.Write("Answer: ");
-            input = Console.ReadLine();
-            while (!p.CheckAnswer(Convert.ToDouble(input)))
-            {
-                Console.WriteLine("Try again.");
-                Console.Write("Answer: ");
-                input = Console.ReadLine();
-            }
-            Console.WriteLine("Good job.");
+            //Console.WriteLine("Try and answer this: (HARD) ");
+            //p = new Problem(easy);
+            //Console.WriteLine(p.ToString());
+            //Console.Write("Answer: ");
+            //input = Console.ReadLine();
+            //while (!p.CheckAnswer(Convert.ToDouble(input)))
+            //{
+            //    Console.WriteLine("Try again.");
+            //    Console.Write("Answer: ");
+            //    input = Console.ReadLine();
+            //}
+            //Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: (VERY HARD)");
-            p = new Problem(easy);
-            Console.WriteLine(p.ToString());
-            Console.Write("Answer: ");
-            input = Console.ReadLine();
-            while (!p.CheckAnswer(Convert.ToDouble(input)))
-            {
-                Console.WriteLine("Try again.");
-                Console.Write("Answer: ");
-                input = Console.ReadLine();
-            }
-            Console.WriteLine("Good job.");
+            //Console.WriteLine("Try and answer this: (VERY HARD)");
+            //p = new Problem(easy);
+            //Console.WriteLine(p.ToString());
+            //Console.Write("Answer: ");
+            //input = Console.ReadLine();
+            //while (!p.CheckAnswer(Convert.ToDouble(input)))
+            //{
+            //    Console.WriteLine("Try again.");
+            //    Console.Write("Answer: ");
+            //    input = Console.ReadLine();
+            //}
+            //Console.WriteLine("Good job.");
 
-            Console.WriteLine("Try and answer this: (IMPOSSIBLE)");
-            p = new Problem(easy);
-            Console.WriteLine(p.ToString());
-            Console.Write("Answer: ");
-            input = Console.ReadLine();
-            while (!p.CheckAnswer(Convert.ToDouble(input)))
-            {
-                Console.WriteLine("Try again.");
-                Console.Write("Answer: ");
-                input = Console.ReadLine();
-            }
-            Console.WriteLine("Good job.");
+            //Console.WriteLine("Try and answer this: (IMPOSSIBLE)");
+            //p = new Problem(easy);
+            //Console.WriteLine(p.ToString());
+            //Console.Write("Answer: ");
+            //input = Console.ReadLine();
+            //while (!p.CheckAnswer(Convert.ToDouble(input)))
+            //{
+            //    Console.WriteLine("Try again.");
+            //    Console.Write("Answer: ");
+            //    input = Console.ReadLine();
+            //}
+            //Console.WriteLine("Good job.");
 
             
             Console.ReadKey();

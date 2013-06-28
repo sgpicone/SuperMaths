@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Answer.cs" />
     <Compile Include="AProblem.cs" />
+    <Compile Include="Calculate.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +50,10 @@
     <ProjectReference Include="..\SuperMathDifficulty\SuperMathDifficulty.csproj">
       <Project>{652e8d77-06b9-4892-b455-c008cc896c34}</Project>
       <Name>SuperMathDifficulty</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuperMathExtensions\SuperMathExtensions.csproj">
+      <Project>{4e813a5b-69ce-4980-80ab-0e8557cbe17e}</Project>
+      <Name>SuperMathExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\SuperMathTools\SuperMathTools.csproj">
       <Project>{dcba815f-0c9b-4e2c-8a58-6b4e1a314927}</Project>

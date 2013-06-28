@@ -1,8 +1,10 @@
 ﻿using SuperMathDifficulty;
+using SuperMathExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SuperMathProblem
@@ -34,6 +36,13 @@ namespace SuperMathProblem
             protected set { _Answer = value; }
         }
 
+        private int _BasePoints;
+        protected int BasePoints
+        {
+            get { return _BasePoints; }
+            set { _BasePoints = value; }
+        }
+
         private int _Points;
         public int Points
         {
@@ -50,17 +59,27 @@ namespace SuperMathProblem
 
         public void Create()
         {
+            GetBasePoints();
+            Points = BasePoints;
             do
             {
-                GenerateValues();
+                GetNumValues();
                 GenerateOperators();
+                GenerateValues();
                 this.Answer = new Answer(this);
             } while (!Validate());
         }
 
+        protected void GetBasePoints()
+        {
+            int bas = this.Difficulty.ProblemPointBase();
+            int dev = this.Difficulty.ProblemPointDeviation();
+            BasePoints = RandomGenerator.Next(bas - dev, bas + dev);
+        }
+
         protected void GetNumValues()
         {
-            int possibleNumValPoints = Points / 5;
+            int possibleNumValPoints = BasePoints / 5;
             int maxNumVals = (possibleNumValPoints / 10 + 1) < MIN_VALUES ? MIN_VALUES + 2 : (possibleNumValPoints / 10 + 1);
             int numVals = RandomGenerator.Next(MIN_VALUES, maxNumVals);
             int pointsFromNumVals = numVals * 5;
@@ -71,15 +90,70 @@ namespace SuperMathProblem
 
         protected void GenerateOperators()
         {
-            int maxAllowedOpPoints
+            int maxAllowedOpPoints = BasePoints / 5;
+            int opValue;
+            Operator op;
+            for (int i = 0; i < Operators.Capacity; i++)
+            {
+                opValue = RandomGenerator.Next(maxAllowedOpPoints);
+                op = (opValue < 20) ? Operator.PLUS : (opValue < 40) ? Operator.MINUS : (opValue < 80) ? Operator.MULT : Operator.DIV;
+                Points -= opValue;
+                maxAllowedOpPoints -= opValue / 2;
+                Operators.Add(op);
+                Thread.Sleep(50);
+            }
         }
-        
+
         protected void GenerateValues()
         {
-
+            int maxAllowedValPoints = BasePoints / 5;
+            int maxAllowedValue = this.Difficulty.ProblemMaxValue();
+            int value;
+            int pointsRemoved;
+            for (int i = 0; i < Values.Capacity; i++)
+            {
+                if (i < Operators.Count && Operators[i] == Operator.DIV)
+                {
+                    int divisor = new Random().Next(2, maxAllowedValue / 10);
+                    Thread.Sleep(50);
+                    int tempQuot = new Random().Next(2, maxAllowedValue / 10);
+                    int dividend = divisor * tempQuot;
+                    Values.Add(dividend);
+                    Values.Add(divisor);
+                    i++;
+                    pointsRemoved = Math.Abs(dividend / 10) + Math.Abs(divisor / 10); 
+                    Points -= pointsRemoved;
+                    maxAllowedValue -= pointsRemoved;
+                }
+                else if ((i < Operators.Count && Operators[i] == Operator.MULT) || ((i > 0 && i < Operators.Capacity) && Operators[i - 1] == Operator.MULT))
+                {
+                    int multiplicand = new Random().Next(2, maxAllowedValue / 8);
+                    Thread.Sleep(50);
+                    int multiplier = new Random().Next(2, maxAllowedValue / 8);
+                    Values.Add(multiplicand);
+                    Values.Add(multiplier);
+                    i++;
+                    pointsRemoved = Math.Abs(multiplicand / 10) + Math.Abs(multiplier / 10);
+                    Points -= pointsRemoved;
+                    maxAllowedValue -= pointsRemoved;
+                }
+                else
+                {
+                    value = RandomGenerator.Next(maxAllowedValue);
+                    pointsRemoved = Math.Abs(value / 10);
+                    Values.Add(value);
+                    maxAllowedValue -= pointsRemoved;
+                }
+                Thread.Sleep(50);
+            }
         }
-        
+
         public abstract bool CheckAnswer(double value);
+
+        public int PossiblePointEarnings()
+        {
+            return BasePoints - Points;
+        }
 
         /// <summary>
         /// Verifies that the generated problem's answer falls between the accepted
@@ -89,8 +163,8 @@ namespace SuperMathProblem
         public bool Validate()
         {
             return (this.Answer.Value == Calculate.INVALID_ANSWER) ? false : 
-                (this.Answer.Value >= ProblemDifficultyExtensions.ProblemAnswerLowerBound(this.DifficultyScheme.AnswerRangeDifficulty) &&
-               this.Answer.Value <= ProblemDifficultyExtensions.ProblemAnswerUpperBound(this.DifficultyScheme.AnswerRangeDifficulty));
+                (this.Answer.Value >= this.Difficulty.ProblemAnswerLowerBound() &&
+               this.Answer.Value <= this.Difficulty.ProblemAnswerUpperBound());
         }
 
         public override string ToString()

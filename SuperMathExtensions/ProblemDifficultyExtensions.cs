@@ -13,6 +13,64 @@ namespace SuperMathExtensions
     public static class ProblemDifficultyExtensions
     {
         /// <summary>
+        /// Returns the base points value for a problem, given its difficulty
+        /// This value is used to generate a problem of a given difficulty.
+        /// </summary>
+        /// <param name="diff">The expected difficulty level of the problem</param>
+        /// <returns>The base points value for this problem</returns>
+        public static int ProblemPointBase(this Difficulty diff)
+        {
+            switch (diff)
+            {
+                case Difficulty.EASY: return 75;
+                case Difficulty.NORMAL: return 125;
+                case Difficulty.HARD: return 175;
+                case Difficulty.VERY_HARD: return 275;
+                case Difficulty.IMPOSSIBLE: return 375;
+                default: return 75;
+            }        
+        }
+
+        /// <summary>
+        /// Returns the deviation from the base points value for a problem, given its difficulty
+        /// This value is used to generate a problem of a given difficulty.
+        /// </summary>
+        /// <param name="diff">The expected difficulty level of this problem</param>
+        /// <returns>The deviation from the base points for this problem</returns>
+        public static int ProblemPointDeviation(this Difficulty diff)
+        {
+            int dev = 50;
+            switch (diff)
+            {
+                case Difficulty.EASY:
+                case Difficulty.NORMAL: return dev *= 1;
+                case Difficulty.HARD: 
+                case Difficulty.VERY_HARD: return dev *= 2;
+                case Difficulty.IMPOSSIBLE: return dev *= 4;
+                default: return dev *= 1;
+            }
+        }
+
+        /// <summary>
+        /// Returns the maximum value for values in a problem of the given difficulty
+        /// </summary>
+        /// <param name="diff">The difficulty of the problem</param>
+        /// <returns>The maximum for values of this problem</returns>
+        public static int ProblemMaxValue(this Difficulty diff)
+        {
+            switch (diff)
+            {
+                case Difficulty.EASY: return 26;
+                case Difficulty.NORMAL: return 51;
+                case Difficulty.HARD: return 76;
+                case Difficulty.VERY_HARD: return 101;
+                case Difficulty.IMPOSSIBLE: return 126;
+                default: return 26;
+            }
+        }
+
+
+        /// <summary>
         /// Get the upper bound for an answer for a problem of this difficulty
         /// </summary>
         /// <param name="diff">The difficulty of the problem</param>
@@ -129,18 +187,18 @@ namespace SuperMathExtensions
         /// </summary>
         /// <param name="diff"></param>
         /// <returns></returns>
-        public static Operator ProblemOpByDiffAndFreq(this Difficulty diff, double freq)
-        {
-            switch (diff)
-            {
-                case Difficulty.EASY: return (freq < .5) ? Operator.PLUS : Operator.MINUS;
-                case Difficulty.NORMAL: return (freq >= .9) ? Operator.MULT : (freq < .45) ? Operator.PLUS : Operator.MINUS;
-                case Difficulty.HARD: return (freq >= .9) ? Operator.MULT : (freq >= .8) ? Operator.DIV : (freq <.4) ? Operator.PLUS : Operator.MINUS;
-                case Difficulty.VERY_HARD: return (freq >= .9) ? Operator.DIV : (freq >= .6) ? Operator.MULT : (freq < .3) ? Operator.PLUS : Operator.MINUS;
-                case Difficulty.IMPOSSIBLE: return (freq >= .75) ? Operator.DIV : (freq >= .5) ? Operator.MULT : (freq < .25) ? Operator.PLUS : Operator.MINUS; ;
-                default: return 0;
-            }
-        }
+        //public static Operator ProblemOpByDiffAndFreq(this Difficulty diff, double freq)
+        //{
+        //    switch (diff)
+        //    {
+        //        case Difficulty.EASY: return (freq < .5) ? Operator.PLUS : Operator.MINUS;
+        //        case Difficulty.NORMAL: return (freq >= .9) ? Operator.MULT : (freq < .45) ? Operator.PLUS : Operator.MINUS;
+        //        case Difficulty.HARD: return (freq >= .9) ? Operator.MULT : (freq >= .8) ? Operator.DIV : (freq <.4) ? Operator.PLUS : Operator.MINUS;
+        //        case Difficulty.VERY_HARD: return (freq >= .9) ? Operator.DIV : (freq >= .6) ? Operator.MULT : (freq < .3) ? Operator.PLUS : Operator.MINUS;
+        //        case Difficulty.IMPOSSIBLE: return (freq >= .75) ? Operator.DIV : (freq >= .5) ? Operator.MULT : (freq < .25) ? Operator.PLUS : Operator.MINUS; ;
+        //        default: return 0;
+        //    }
+        //}
 
         /// <summary>
         /// Returns the base number of values to use when creating a problem

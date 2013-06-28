@@ -10,7 +10,8 @@ namespace SuperMathProblem
     public abstract class AProblem
     {
         protected const int MAX_OPERATORS = 4;
-        protected Random RandomGenerator; 
+        protected const int MIN_VALUES = 2;
+        protected Random RandomGenerator = new Random(); 
 
         private List<long> _Values;
         public List<long> Values
@@ -47,78 +48,6 @@ namespace SuperMathProblem
             protected set { _Difficulty = value; }
         }
 
-        //private DifficultyScheme _DifficultyScheme;
-        //public DifficultyScheme DifficultyScheme
-        //{
-        //    get { return _DifficultyScheme; }
-        //    protected set
-        //    {
-        //        _DifficultyScheme = value;
-        //    }
-        //}
-
-        //private DifficultyScheme _DifficultyScheme;
-        //public DifficultyScheme DifficultyScheme
-        //{
-        //    get { return _DifficultyScheme; }
-        //    protected set
-        //    {
-        //        _DifficultyScheme = value;
-        //        _OperatorDifficulty = value;
-        //        _RangeDifficulty = value;
-        //        _AnswerDeviationDifficulty = value;
-        //        _NumberOfValuesDifficulty = value;
-        //    }
-        //}
-
-        ///// <summary>
-        ///// The difficulty that determines what operators
-        ///// are used in the problem; e.g., on easy, only addition
-        ///// and subtraction are used; on impossible, addition, subtraction,
-        ///// multiplication and division are all distributed evenly 
-        ///// through the problem
-        ///// </summary>
-        //private Difficulty _OperatorDifficulty;
-        //public Difficulty OperatorDifficulty
-        //{
-        //    get { return _OperatorDifficulty; }
-        //    protected set { _OperatorDifficulty = value; }
-        //}
-
-        ///// <summary>
-        ///// The difficulty that determines the range of values
-        ///// that can be used in the problem; e.g., on easy, only
-        ///// numbers between 0 and 100 are used to create the problem.
-        ///// </summary>
-        //private Difficulty _RangeDifficulty;
-        //public Difficulty RangeDifficulty
-        //{
-        //    get { return _RangeDifficulty; }
-        //    protected set { _RangeDifficulty = value; }
-        //}
-
-        ///// <summary>
-        ///// The allowed deviation from the answer; e.g., on hard, answers within
-        ///// 1.1% of the exact answer are accepted
-        ///// </summary>
-        //private Difficulty _AnswerDeviationDifficulty;
-        //public Difficulty AnswerDeviationDifficulty
-        //{
-        //    get { return _AnswerDeviationDifficulty; }
-        //    protected set { _AnswerDeviationDifficulty = value; }
-        //}
-
-        ///// <summary>
-        ///// The difficulty that determines the number of values used in the problem.
-        ///// Ranges from 2 to 13.
-        ///// </summary>
-        //private Difficulty _NumberOfValuesDifficulty;
-        //public Difficulty NumberOfValuesDifficulty
-        //{
-        //    get { return _NumberOfValuesDifficulty; }
-        //    protected set { _NumberOfValuesDifficulty = value; }
-        //}
-
         public void Create()
         {
             do
@@ -129,8 +58,27 @@ namespace SuperMathProblem
             } while (!Validate());
         }
 
-        protected abstract void GenerateValues();
-        protected abstract void GenerateOperators();
+        protected void GetNumValues()
+        {
+            int possibleNumValPoints = Points / 5;
+            int maxNumVals = (possibleNumValPoints / 10 + 1) < MIN_VALUES ? MIN_VALUES + 2 : (possibleNumValPoints / 10 + 1);
+            int numVals = RandomGenerator.Next(MIN_VALUES, maxNumVals);
+            int pointsFromNumVals = numVals * 5;
+            Points -= pointsFromNumVals;
+            Values = new List<long>(numVals);
+            Operators = new List<Operator>(numVals - 1);
+        }
+
+        protected void GenerateOperators()
+        {
+            int maxAllowedOpPoints
+        }
+        
+        protected void GenerateValues()
+        {
+
+        }
+        
         public abstract bool CheckAnswer(double value);
 
         /// <summary>

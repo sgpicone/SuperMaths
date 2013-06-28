@@ -66,6 +66,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -104,9 +105,9 @@
       <Project>{d79eec51-b075-4534-bbd8-4ca03cec3753}</Project>
       <Name>SuperMathStage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SuperMathTools\SuperMathUtils.csproj">
+    <ProjectReference Include="..\SuperMathTools\SuperMathTools.csproj">
       <Project>{dcba815f-0c9b-4e2c-8a58-6b4e1a314927}</Project>
-      <Name>SuperMathUtils</Name>
+      <Name>SuperMathTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

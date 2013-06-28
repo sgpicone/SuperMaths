@@ -4,12 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMath
+namespace SuperMathDifficulty
 {
     public enum Difficulty
     {
         EASY, NORMAL, HARD, VERY_HARD, IMPOSSIBLE
     }
+
+    /// AS OF 6/28/2013, SUPERMATHS WILL USE A POINTS SYSTEM FOR DIFFICULTY
+    /// AND PROBLEM GENERATION.
+    /// All problems will have a base point value and a deviation. A
+    /// random number is generated between base-dev and base+dev, and that value
+    /// is used to generate the problem as follows:
+    ///     The number of values is randomly chosen such that the points earned by it
+    ///         do not exceed 20% of the total points allotted to the problem.
+    ///         The points earned from the number of values are subtracted from the
+    ///         total allotted points, and the resulting value becomes the total
+    ///         allotted points for the problem, to be used in future calculations.
+    ///     The operators are chosen in a similar fashion, with harder operators (*, /)
+    ///         being worth more points than easier operators (+, -), so that easy problems,
+    ///         which are worth fewer points, are unlikely to have * or /.
+    ///     Values are chosen in a similar fashion, in such a way that each value does not
+    ///         exceed a certain percentage of the problem's total points when divided by 10.
+    ///         This means that if an easy problem starts with a large value, the remaining values
+    ///         will be gradually smaller.
 
     /// <summary>
     /// This class provides static extension methods for Difficulties.

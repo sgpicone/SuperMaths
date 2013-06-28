@@ -74,7 +74,7 @@ namespace SuperMathProblem
         {
             int bas = this.Difficulty.ProblemPointBase();
             int dev = this.Difficulty.ProblemPointDeviation();
-            BasePoints = RandomGenerator.Next(bas - dev, bas + dev);
+            BasePoints = RandomGenerator.Next(bas - 50, bas + dev); //todo FIX THIS. should always be -50 and + dev*some number; probably change ProbPtDev() to ret. a multiplier, not a dev.
         }
 
         protected void GetNumValues()

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperMathDifficulty;
 
-namespace SuperMath
+namespace SuperMathExtensions
 {
     /// <summary>
     /// This class provides static extension methods for Difficulties related to Problems.

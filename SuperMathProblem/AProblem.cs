@@ -1,12 +1,11 @@
-﻿using SuperMath;
-using SuperMathDifficulty;
+﻿using SuperMathDifficulty;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMath
+namespace SuperMathProblem
 {
     public abstract class AProblem
     {
@@ -34,15 +33,29 @@ namespace SuperMath
             protected set { _Answer = value; }
         }
 
-        private DifficultyScheme _DifficultyScheme;
-        public DifficultyScheme DifficultyScheme
+        private int _Points;
+        public int Points
         {
-            get { return _DifficultyScheme; }
-            protected set
-            {
-                _DifficultyScheme = value;
-            }
+            get { return _Points; }
+            protected set { _Points = value; }
         }
+
+        private Difficulty _Difficulty;
+        public Difficulty Difficulty
+        {
+            get { return _Difficulty; }
+            protected set { _Difficulty = value; }
+        }
+
+        //private DifficultyScheme _DifficultyScheme;
+        //public DifficultyScheme DifficultyScheme
+        //{
+        //    get { return _DifficultyScheme; }
+        //    protected set
+        //    {
+        //        _DifficultyScheme = value;
+        //    }
+        //}
 
         //private DifficultyScheme _DifficultyScheme;
         //public DifficultyScheme DifficultyScheme

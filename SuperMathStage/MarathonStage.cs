@@ -1,10 +1,13 @@
-﻿using System;
+﻿using SuperMathDifficulty;
+using SuperMathDistraction;
+using SuperMathProblem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMath
+namespace SuperMathStage
 {
     public class MarathonStage : AStage
     {

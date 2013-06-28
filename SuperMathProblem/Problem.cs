@@ -1,12 +1,13 @@
-﻿using SuperMath;
-using SuperMathDifficulty;
+﻿using SuperMathDifficulty;
+using SuperMathExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMath
+
+namespace SuperMathProblem
 {
     public class Problem : AProblem
     {
@@ -19,7 +20,7 @@ namespace SuperMath
 
         protected override void GenerateValues()
         {
-            int numValues = ProblemDifficultyExtensions.ProblemNumberOfValues(this.DifficultyScheme.NumberOfValuesDifficulty);
+            int numValues = this.DifficultyScheme.NumberOfValuesDifficulty.ProblemNumberOfValues();
             int deviation = ProblemDifficultyExtensions.ProblemNumberOfValuesDeviation(this.DifficultyScheme.NumberOfValuesDifficulty);
 
             numValues += RandomGenerator.Next(-deviation, deviation + 1);

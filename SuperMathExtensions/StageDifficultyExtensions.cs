@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SuperMathDifficulty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMath
+namespace SuperMathExtensions
 {
     public static class StageDifficultyExtensions
     {

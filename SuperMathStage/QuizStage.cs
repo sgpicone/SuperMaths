@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperMathProblem;
+using SuperMathDistraction;
+using SuperMathDifficulty;
 
-namespace SuperMath
+namespace SuperMathStage
 {
     public class QuizStage : AStage
     {

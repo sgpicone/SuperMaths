@@ -1,4 +1,4 @@
-﻿using SuperMathDifficulty;
+﻿using SuperMath.Difficulty;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -48,7 +48,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizStage.cs" />
     <Compile Include="QuizStageFactory.cs" />
-    <Compile Include="StageDifficultyExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SuperMathDifficulty\SuperMathDifficulty.csproj">
@@ -63,9 +62,9 @@
       <Project>{409ae329-07d6-4d89-a210-0e8620e113e4}</Project>
       <Name>SuperMathProblem</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SuperMathTools\SuperMathUtils.csproj">
+    <ProjectReference Include="..\SuperMathTools\SuperMathTools.csproj">
       <Project>{dcba815f-0c9b-4e2c-8a58-6b4e1a314927}</Project>
-      <Name>SuperMathUtils</Name>
+      <Name>SuperMathTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

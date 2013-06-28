@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperMathDifficulty;
+using SuperMathTools;
+using SuperMathExtensions;
 
-namespace SuperMath
+namespace SuperMathProblem
 {
     public class Answer
     {

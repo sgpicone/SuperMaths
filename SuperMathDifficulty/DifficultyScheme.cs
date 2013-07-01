@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMathDifficulty
 {
+    [Obsolete("Deprecated. Do not use DifficultyScheme.", true)]
     public class DifficultyScheme
     {
         private Difficulty _Difficulty;

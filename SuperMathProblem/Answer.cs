@@ -30,13 +30,9 @@ namespace SuperMathProblem
             Value = Calculate.CalcDouble(this.Problem.Values, this.Problem.Operators);
         }
 
-        public bool VerifyAnswer(double val, Difficulty diff)
+        public bool VerifyAnswer(double val)
         {
-            double dev = ProblemDifficultyExtensions.ProblemAnswerDeviationAllowed(diff);
-            double lowBound = this.Value-(this.Value*dev);
-            double hiBound = this.Value+(this.Value*dev);
-
-            return (val >= lowBound && val <= hiBound);
+            return (val == Value);
         }
 
         public override string ToString()

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SuperMathStage
 {
-    public class MarathonStageFactory : IStageFactory
+    class StageFactory : IStageFactory
     {
         public AStage CreateStage()
         {
-            return new MarathonStage();
+            throw new NotImplementedException();
         }
     }
 }

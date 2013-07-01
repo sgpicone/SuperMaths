@@ -29,41 +29,18 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.btnMain = new System.Windows.Forms.Button();
-            this.lblMain = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblAnswer = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
-            this.pnlMain.Controls.Add(this.lblAnswer);
-            this.pnlMain.Controls.Add(this.btnMain);
-            this.pnlMain.Controls.Add(this.lblMain);
-            this.pnlMain.Location = new System.Drawing.Point(12, 264);
+            this.pnlMain.Controls.Add(this.button1);
+            this.pnlMain.Location = new System.Drawing.Point(12, 26);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(760, 286);
+            this.pnlMain.Size = new System.Drawing.Size(760, 524);
             this.pnlMain.TabIndex = 0;
-            // 
-            // btnMain
-            // 
-            this.btnMain.Location = new System.Drawing.Point(47, 145);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(161, 23);
-            this.btnMain.TabIndex = 1;
-            this.btnMain.Text = "GO TO OTHER SCREEN";
-            this.btnMain.UseVisualStyleBackColor = true;
-            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
-            // 
-            // lblMain
-            // 
-            this.lblMain.AutoSize = true;
-            this.lblMain.Location = new System.Drawing.Point(107, 105);
-            this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(81, 13);
-            this.lblMain.TabIndex = 0;
-            this.lblMain.Text = "MAIN SCREEN";
             // 
             // lblTitle
             // 
@@ -72,17 +49,18 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(784, 23);
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Super Maths 9KK9";
+            this.lblTitle.Text = "Super Maths";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblAnswer
+            // button1
             // 
-            this.lblAnswer.AutoSize = true;
-            this.lblAnswer.Location = new System.Drawing.Point(374, 104);
-            this.lblAnswer.Name = "lblAnswer";
-            this.lblAnswer.Size = new System.Drawing.Size(55, 13);
-            this.lblAnswer.TabIndex = 2;
-            this.lblAnswer.Text = "ANSWER";
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GUI
             // 
@@ -95,7 +73,6 @@
             this.Text = "GUI";
             this.Load += new System.EventHandler(this.GUI_Load);
             this.pnlMain.ResumeLayout(false);
-            this.pnlMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -103,10 +80,8 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Label lblMain;
-        private System.Windows.Forms.Button btnMain;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblAnswer;
+        private System.Windows.Forms.Button button1;
 
     }
 }

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace SuperMathProblem
 {
+    //NO COMMENTS.
     public abstract class AProblem
     {
-        protected const int MAX_OPERATORS = 4;
         protected const int MIN_VALUES = 2;
         protected Random RandomGenerator = new Random(); 
 

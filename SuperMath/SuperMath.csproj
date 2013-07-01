@@ -92,6 +92,10 @@
       <Project>{b7f39f61-5ca6-402c-ad7e-5b7b29040910}</Project>
       <Name>SuperMathDistraction</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SuperMathExtensions\SuperMathExtensions.csproj">
+      <Project>{4e813a5b-69ce-4980-80ab-0e8557cbe17e}</Project>
+      <Name>SuperMathExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SuperMathProblem\SuperMathProblem.csproj">
       <Project>{409ae329-07d6-4d89-a210-0e8620e113e4}</Project>
       <Name>SuperMathProblem</Name>

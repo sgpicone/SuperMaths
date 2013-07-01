@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define spoopy 
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +9,21 @@ using SuperMathProblem;
 using SuperMathDistraction;
 using SuperMathDifficulty;
 
+
 namespace SuperMathStage
 {
     public abstract class AStage
     {
+        protected int TimeLimit;
+        protected int PointsAwarded;
+
+        private List<double> _Answers;
+        public List<double> Answers
+        {
+            get { return _Answers; }
+            protected set { _Answers = value; }
+        }
+
         private List<AProblem> _Problems;
         public List<AProblem> Problems
         {
@@ -32,40 +45,24 @@ namespace SuperMathStage
             protected set
             {
                 _Difficulty = value;
-                _OperatorDifficulty = value;
-                _RangeDifficulty = value;
-                _AnswerDifficulty = value;
-                _NumberOfValuesDifficulty = value;
+                _NumberOfProblemsDifficulty = value;
                 _DistractionsDifficulty = value;
+                _TimeDifficulty = value;
             }
         }
 
-        private Difficulty _OperatorDifficulty;
-        public Difficulty OperatorDifficulty
+        private Difficulty _NumberOfProblemsDifficulty;
+        public Difficulty NumberOfProblemsDifficulty
         {
-            get { return _OperatorDifficulty; }
-            protected set { _OperatorDifficulty = value; }
+            get { return _NumberOfProblemsDifficulty; }
+            protected set { _NumberOfProblemsDifficulty = value; }
         }
 
-        private Difficulty _RangeDifficulty;
-        public Difficulty RangeDifficulty
+        private Difficulty _TimeDifficulty;
+        public Difficulty TimeDifficulty
         {
-            get { return _RangeDifficulty; }
-            protected set { _RangeDifficulty = value; }
-        }
-
-        private Difficulty _AnswerDifficulty;
-        public Difficulty AnswerDifficulty
-        {
-            get { return _AnswerDifficulty; }
-            protected set { _AnswerDifficulty = value; }
-        }
-
-        private Difficulty _NumberOfValuesDifficulty;
-        public Difficulty NumberOfValuesDifficulty
-        {
-            get { return _NumberOfValuesDifficulty; }
-            protected set { _NumberOfValuesDifficulty = value; }
+            get { return _TimeDifficulty; }
+            protected set { _TimeDifficulty = value; }
         }
 
         private Difficulty _DistractionsDifficulty;
@@ -80,5 +77,9 @@ namespace SuperMathStage
         /// based on the difficulty of the stage
         /// </summary>
         public abstract void PrepareStage();
+        public abstract bool CheckAnswers();
+
+
+
     }
 }

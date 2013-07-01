@@ -8,5 +8,6 @@ namespace SuperMathGame
 {
     class CampaignGame : AGame
     {
+
     }
 }

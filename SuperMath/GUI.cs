@@ -22,9 +22,14 @@ namespace SuperMath
             //lblMain.Text = p.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnQuit_Click(object sender, EventArgs e)
         {
+            Quit();
+        }
 
+        private void btnQuickGame_Click(object sender, EventArgs e)
+        {
+            NewQuickGame();
         }
 
     }

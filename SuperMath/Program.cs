@@ -19,69 +19,69 @@ namespace SuperMath
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new GUI());
-            Stage level;
-            string answers;
-            int userPoints = 0;
-            int nextLevel = 1000;
-            for (Difficulty diff = Difficulty.EASY; diff <= Difficulty.IMPOSSIBLE; diff = diff + 1)
-            {
-                if (userPoints > nextLevel)
-                {
-                    nextLevel += 1000*(int)(diff+1);
-                    Console.WriteLine("Level up!");
-                }
-                else
-                {
-                    diff = (diff > 0) ? diff - 1 : diff;
-                }
-                level = new Stage(diff);
-                Console.WriteLine(diff.DifficultyToString(true));
-                Console.WriteLine(level);
-                for (int i = 0; i < level.NumberOfProblemsDifficulty.StageNumberProblemsDifficulty(); i++)
-                {
-                    Console.Write("Enter answer " + i + ": ");
-                    answers = Console.ReadLine();
-                    try
-                    {
-                        level.Answers.Add(Convert.ToDouble(answers));
-                    }
-                    catch (FormatException)
-                    {
-                        level.Answers.Add(0);
-                    }
-                }
-                if (level.CheckAnswers())
-                {
-                    Console.WriteLine("All correct. Good job. " + level.getPoints() + " points awarded.");
-                    userPoints += level.getPoints();
-                }
-                else
-                {
-                    Console.WriteLine("Incorrect. " + level.getPoints() + " points awarded.");
-                    userPoints += level.getPoints();
-                }
-                Console.WriteLine("\nYour points: " + userPoints);
-                Console.WriteLine("\nPoints until next level: " + (nextLevel - userPoints));
-                Console.WriteLine();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new GUI());
+            //Stage level;
+            //string answers;
+            //int userPoints = 0;
+            //int nextLevel = 1000;
+            //for (Difficulty diff = Difficulty.EASY; diff <= Difficulty.IMPOSSIBLE; diff = diff + 1)
+            //{
+            //    if (userPoints > nextLevel)
+            //    {
+            //        nextLevel += 1000*(int)(diff+1);
+            //        Console.WriteLine("Level up!");
+            //    }
+            //    else
+            //    {
+            //        diff = (diff > 0) ? diff - 1 : diff;
+            //    }
+            //    level = new Stage(diff);
+            //    Console.WriteLine(diff.DifficultyToString(true));
+            //    Console.WriteLine(level);
+            //    for (int i = 0; i < level.NumberOfProblemsDifficulty.StageNumberProblemsDifficulty(); i++)
+            //    {
+            //        Console.Write("Enter answer " + i + ": ");
+            //        answers = Console.ReadLine();
+            //        try
+            //        {
+            //            level.Answers.Add(Convert.ToDouble(answers));
+            //        }
+            //        catch (FormatException)
+            //        {
+            //            level.Answers.Add(0);
+            //        }
+            //    }
+            //    if (level.CheckAnswers())
+            //    {
+            //        Console.WriteLine("All correct. Good job. " + level.getPoints() + " points awarded.");
+            //        userPoints += level.getPoints();
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Incorrect. " + level.getPoints() + " points awarded.");
+            //        userPoints += level.getPoints();
+            //    }
+            //    Console.WriteLine("\nYour points: " + userPoints);
+            //    Console.WriteLine("\nPoints until next level: " + (nextLevel - userPoints));
+            //    Console.WriteLine();
 
-            }
-            Console.WriteLine("Total points: " + userPoints);
+            //}
+            //Console.WriteLine("Total points: " + userPoints);
 
-            //level = new Stage(Difficulty.EASY);
-            //Console.WriteLine(level);
-            //level = new Stage(Difficulty.NORMAL);
-            //Console.WriteLine(level);
-            //level = new Stage(Difficulty.HARD);
-            //Console.WriteLine(level);
-            //level = new Stage(Difficulty.VERY_HARD);
-            //Console.WriteLine(level);
-            //level = new Stage(Difficulty.IMPOSSIBLE);
-            //Console.WriteLine(level);
+            ////level = new Stage(Difficulty.EASY);
+            ////Console.WriteLine(level);
+            ////level = new Stage(Difficulty.NORMAL);
+            ////Console.WriteLine(level);
+            ////level = new Stage(Difficulty.HARD);
+            ////Console.WriteLine(level);
+            ////level = new Stage(Difficulty.VERY_HARD);
+            ////Console.WriteLine(level);
+            ////level = new Stage(Difficulty.IMPOSSIBLE);
+            ////Console.WriteLine(level);
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         //Application.EnableVisualStyles();

@@ -10,14 +10,8 @@ namespace SuperMathGame
 {
     public abstract class AGame
     {
-        protected List<AStage> levels; //list of levels
         protected GameMode gameMode;
         protected bool Adult; //if adult mode is on or off
-
-
-
-
-        
 
 
     }

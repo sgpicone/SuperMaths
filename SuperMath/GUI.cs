@@ -15,6 +15,7 @@ namespace SuperMath
 
         private void GUI_Load(object sender, EventArgs e)
         {
+            switchScreen("MAIN");
             //List<long> values = new List<long>() { 48, 9, 2 };
             //List<Operator> ops = new List<Operator>() { Operator.DIV, Operator.MULT };
             //lblMain.Text = Calculate.CalcLong(values, ops).ToString();
@@ -29,8 +30,19 @@ namespace SuperMath
 
         private void btnQuickGame_Click(object sender, EventArgs e)
         {
-            NewQuickGame();
+            bool adult = true;
+            PrepareDifficultyScreen(adult);
+            switchScreen("DIFF");
         }
 
+        private void btnCheckAnswers_Click(object sender, EventArgs e)
+        {
+            CheckAnswers();
+        }
+
+        private void btnSelectDiff_Click(object sender, EventArgs e)
+        {
+            NewQuickGame(ChooseDifficulty());
+        }
     }
 }

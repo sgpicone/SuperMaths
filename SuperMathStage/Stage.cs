@@ -50,7 +50,7 @@ namespace SuperMathStage
             return succeed;
         }
 
-        public int getPoints()
+        public override int getPoints()
         {
             return PointsAwarded;
         }

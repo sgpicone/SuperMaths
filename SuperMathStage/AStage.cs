@@ -78,6 +78,7 @@ namespace SuperMathStage
         /// </summary>
         public abstract void PrepareStage();
         public abstract bool CheckAnswers();
+        public abstract int getPoints();
 
 
 

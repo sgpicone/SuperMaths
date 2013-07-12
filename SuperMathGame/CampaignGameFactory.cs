@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMathGame
 {
-    class CampaignGameFactory : IGameFactory
+    class CampaignGameFactory : AGameFactory
     {
         public AGame CreateGame()
         {

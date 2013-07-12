@@ -43,7 +43,7 @@
     <Compile Include="CampaignGame.cs" />
     <Compile Include="CampaignGameFactory.cs" />
     <Compile Include="GameMode.cs" />
-    <Compile Include="IGameFactory.cs" />
+    <Compile Include="AGameFactory.cs" />
     <Compile Include="MarathonGame.cs" />
     <Compile Include="MarathonGameFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

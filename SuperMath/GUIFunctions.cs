@@ -41,7 +41,7 @@ namespace SuperMath
                 for(int v = 0; v < Stage.Problems[p].Values.Count(); v++)
                 {
                     lblBase = new Label();
-                    lblBase.Size = new System.Drawing.Size(20, 23);
+                    lblBase.Size = new System.Drawing.Size(25, 25);
                     lblBase.Text = Stage.Problems[p].Values[v].ToString();
                     lblBase.Name = "lbl_Val" + v + "_Prob" + p;
                     lblBase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -53,7 +53,7 @@ namespace SuperMath
                 for(int o = 0; o < Stage.Problems[p].Operators.Count(); o++)
                 {
                     lblBase = new Label();
-                    lblBase.Size = new System.Drawing.Size(20, 23);
+                    lblBase.Size = new System.Drawing.Size(25, 25);
                     lblBase.Text = Stage.Problems[p].Operators[o].OperatorToString();
                     lblBase.Name = "lbl_Op" + o + "_Prob" + p;
                     lblBase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

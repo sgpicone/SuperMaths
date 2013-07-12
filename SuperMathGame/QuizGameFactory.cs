@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMathGame
 {
-    class QuizGameFactory : IGameFactory
+    class QuizGameFactory : AGameFactory
     {
         public AGame CreateGame()
         {

@@ -35,14 +35,14 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.pnlGame = new System.Windows.Forms.Panel();
             this.pnlDifficultySelect = new System.Windows.Forms.Panel();
-            this.pnlSettings = new System.Windows.Forms.Panel();
-            this.rdEASY = new System.Windows.Forms.RadioButton();
-            this.rdMED = new System.Windows.Forms.RadioButton();
-            this.rdHARD = new System.Windows.Forms.RadioButton();
-            this.rdVHARD = new System.Windows.Forms.RadioButton();
-            this.rdIMP = new System.Windows.Forms.RadioButton();
-            this.lblDiffSelectTitle = new System.Windows.Forms.Label();
             this.btnSelectDiff = new System.Windows.Forms.Button();
+            this.lblDiffSelectTitle = new System.Windows.Forms.Label();
+            this.rdIMP = new System.Windows.Forms.RadioButton();
+            this.rdVHARD = new System.Windows.Forms.RadioButton();
+            this.rdHARD = new System.Windows.Forms.RadioButton();
+            this.rdMED = new System.Windows.Forms.RadioButton();
+            this.rdEASY = new System.Windows.Forms.RadioButton();
+            this.pnlSettings = new System.Windows.Forms.Panel();
             this.pnlMain.SuspendLayout();
             this.pnlDifficultySelect.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(784, 23);
+            this.lblTitle.Size = new System.Drawing.Size(800, 23);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Super Maths";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,6 +98,7 @@
             // 
             // pnlGame
             // 
+            this.pnlGame.AutoScroll = true;
             this.pnlGame.Location = new System.Drawing.Point(12, 47);
             this.pnlGame.Name = "pnlGame";
             this.pnlGame.Size = new System.Drawing.Size(760, 503);
@@ -117,68 +118,15 @@
             this.pnlDifficultySelect.Size = new System.Drawing.Size(760, 503);
             this.pnlDifficultySelect.TabIndex = 0;
             // 
-            // pnlSettings
+            // btnSelectDiff
             // 
-            this.pnlSettings.Location = new System.Drawing.Point(12, 47);
-            this.pnlSettings.Name = "pnlSettings";
-            this.pnlSettings.Size = new System.Drawing.Size(760, 503);
-            this.pnlSettings.TabIndex = 0;
-            // 
-            // rdbtnDiffEasy
-            // 
-            this.rdEASY.AutoSize = true;
-            this.rdEASY.Checked = true;
-            this.rdEASY.Location = new System.Drawing.Point(340, 183);
-            this.rdEASY.Name = "rdEASY";
-            this.rdEASY.Size = new System.Drawing.Size(85, 17);
-            this.rdEASY.TabIndex = 0;
-            this.rdEASY.TabStop = true;
-            this.rdEASY.Text = "radioButton1";
-            this.rdEASY.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnDiffMedium
-            // 
-            this.rdMED.AutoSize = true;
-            this.rdMED.Location = new System.Drawing.Point(340, 206);
-            this.rdMED.Name = "rdMED";
-            this.rdMED.Size = new System.Drawing.Size(85, 17);
-            this.rdMED.TabIndex = 1;
-            this.rdMED.TabStop = true;
-            this.rdMED.Text = "radioButton2";
-            this.rdMED.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnDiffHard
-            // 
-            this.rdHARD.AutoSize = true;
-            this.rdHARD.Location = new System.Drawing.Point(340, 229);
-            this.rdHARD.Name = "rdHARD";
-            this.rdHARD.Size = new System.Drawing.Size(85, 17);
-            this.rdHARD.TabIndex = 2;
-            this.rdHARD.TabStop = true;
-            this.rdHARD.Text = "radioButton3";
-            this.rdHARD.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnDiffVeryHard
-            // 
-            this.rdVHARD.AutoSize = true;
-            this.rdVHARD.Location = new System.Drawing.Point(340, 252);
-            this.rdVHARD.Name = "rdVHARD";
-            this.rdVHARD.Size = new System.Drawing.Size(85, 17);
-            this.rdVHARD.TabIndex = 3;
-            this.rdVHARD.TabStop = true;
-            this.rdVHARD.Text = "radioButton4";
-            this.rdVHARD.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnDiffImpossible
-            // 
-            this.rdIMP.AutoSize = true;
-            this.rdIMP.Location = new System.Drawing.Point(340, 277);
-            this.rdIMP.Name = "rdIMP";
-            this.rdIMP.Size = new System.Drawing.Size(85, 17);
-            this.rdIMP.TabIndex = 4;
-            this.rdIMP.TabStop = true;
-            this.rdIMP.Text = "radioButton5";
-            this.rdIMP.UseVisualStyleBackColor = true;
+            this.btnSelectDiff.Location = new System.Drawing.Point(340, 300);
+            this.btnSelectDiff.Name = "btnSelectDiff";
+            this.btnSelectDiff.Size = new System.Drawing.Size(85, 23);
+            this.btnSelectDiff.TabIndex = 6;
+            this.btnSelectDiff.Text = "Start Game";
+            this.btnSelectDiff.UseVisualStyleBackColor = true;
+            this.btnSelectDiff.Click += new System.EventHandler(this.btnSelectDiff_Click);
             // 
             // lblDiffSelectTitle
             // 
@@ -190,26 +138,79 @@
             this.lblDiffSelectTitle.Text = "Select Difficulty";
             this.lblDiffSelectTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnSelectDiff
+            // rdIMP
             // 
-            this.btnSelectDiff.Location = new System.Drawing.Point(340, 300);
-            this.btnSelectDiff.Name = "btnSelectDiff";
-            this.btnSelectDiff.Size = new System.Drawing.Size(85, 23);
-            this.btnSelectDiff.TabIndex = 6;
-            this.btnSelectDiff.Text = "Start Game";
-            this.btnSelectDiff.UseVisualStyleBackColor = true;
-            this.btnSelectDiff.Click += new System.EventHandler(this.btnSelectDiff_Click);
+            this.rdIMP.AutoSize = true;
+            this.rdIMP.Location = new System.Drawing.Point(340, 277);
+            this.rdIMP.Name = "rdIMP";
+            this.rdIMP.Size = new System.Drawing.Size(85, 17);
+            this.rdIMP.TabIndex = 4;
+            this.rdIMP.TabStop = true;
+            this.rdIMP.Text = "radioButton5";
+            this.rdIMP.UseVisualStyleBackColor = true;
+            // 
+            // rdVHARD
+            // 
+            this.rdVHARD.AutoSize = true;
+            this.rdVHARD.Location = new System.Drawing.Point(340, 252);
+            this.rdVHARD.Name = "rdVHARD";
+            this.rdVHARD.Size = new System.Drawing.Size(85, 17);
+            this.rdVHARD.TabIndex = 3;
+            this.rdVHARD.TabStop = true;
+            this.rdVHARD.Text = "radioButton4";
+            this.rdVHARD.UseVisualStyleBackColor = true;
+            // 
+            // rdHARD
+            // 
+            this.rdHARD.AutoSize = true;
+            this.rdHARD.Location = new System.Drawing.Point(340, 229);
+            this.rdHARD.Name = "rdHARD";
+            this.rdHARD.Size = new System.Drawing.Size(85, 17);
+            this.rdHARD.TabIndex = 2;
+            this.rdHARD.TabStop = true;
+            this.rdHARD.Text = "radioButton3";
+            this.rdHARD.UseVisualStyleBackColor = true;
+            // 
+            // rdMED
+            // 
+            this.rdMED.AutoSize = true;
+            this.rdMED.Location = new System.Drawing.Point(340, 206);
+            this.rdMED.Name = "rdMED";
+            this.rdMED.Size = new System.Drawing.Size(85, 17);
+            this.rdMED.TabIndex = 1;
+            this.rdMED.TabStop = true;
+            this.rdMED.Text = "radioButton2";
+            this.rdMED.UseVisualStyleBackColor = true;
+            // 
+            // rdEASY
+            // 
+            this.rdEASY.AutoSize = true;
+            this.rdEASY.Checked = true;
+            this.rdEASY.Location = new System.Drawing.Point(340, 183);
+            this.rdEASY.Name = "rdEASY";
+            this.rdEASY.Size = new System.Drawing.Size(85, 17);
+            this.rdEASY.TabIndex = 0;
+            this.rdEASY.TabStop = true;
+            this.rdEASY.Text = "radioButton1";
+            this.rdEASY.UseVisualStyleBackColor = true;
+            // 
+            // pnlSettings
+            // 
+            this.pnlSettings.Location = new System.Drawing.Point(12, 47);
+            this.pnlSettings.Name = "pnlSettings";
+            this.pnlSettings.Size = new System.Drawing.Size(760, 503);
+            this.pnlSettings.TabIndex = 0;
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 562);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.pnlDifficultySelect);
             this.Controls.Add(this.pnlSettings);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.pnlGame);
             this.Name = "GUI";
             this.Text = "GUI";
             this.Load += new System.EventHandler(this.GUI_Load);

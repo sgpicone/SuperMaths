@@ -30,8 +30,7 @@ namespace SuperMath
 
         private void btnQuickGame_Click(object sender, EventArgs e)
         {
-            bool adult = true;
-            PrepareDifficultyScreen(adult);
+            PrepareDifficultyScreen();
             switchScreen("DIFF");
         }
 
@@ -43,6 +42,21 @@ namespace SuperMath
         private void btnSelectDiff_Click(object sender, EventArgs e)
         {
             NewQuickGame(ChooseDifficulty());
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            switchScreen("SETT");
+        }
+
+        private void chkAdultMode_CheckedChanged(object sender, EventArgs e)
+        {
+            this.AdultMode = !(this.AdultMode);
+        }
+
+        private void btnBackToMenu_Click(object sender, EventArgs e)
+        {
+            switchScreen("MAIN");
         }
     }
 }

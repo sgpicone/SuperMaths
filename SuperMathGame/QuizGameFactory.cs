@@ -8,9 +8,9 @@ namespace SuperMathGame
 {
     class QuizGameFactory : AGameFactory
     {
-        public AGame CreateGame()
+        protected override AGame CreateGame(SuperMathDifficulty.Difficulty diff, bool adult)
         {
-            return new QuizGame();
+            return new QuizGame(diff, adult);
         }
     }
 }

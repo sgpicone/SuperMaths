@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperMathDifficulty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace SuperMathGame
 {
     class MarathonGameFactory : AGameFactory
     {
-        public AGame CreateGame()
+        protected override AGame CreateGame(Difficulty diff, bool adult)
         {
-            return new MarathonGame();
+            return new MarathonGame(diff, adult);
         }
     }
 }

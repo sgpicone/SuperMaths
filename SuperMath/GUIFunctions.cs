@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using SuperMathStage;
 using SuperMathDifficulty;
 using SuperMathProblem;
+using System.Drawing;
+using System.Threading;
 
 namespace SuperMath
 {
@@ -26,7 +28,7 @@ namespace SuperMath
             TextBox answer;
             this.pnlGame.SuspendLayout();
             //create controls for each problem
-            int vstartX = 140, startY = 60, ostartX = 160;
+            int vstartX = 260, startY = 60, ostartX = 280;
             int incX = 0, incY = 0;
             int maxProbCount = 2;
             foreach (Problem p in Stage.Problems)
@@ -35,12 +37,15 @@ namespace SuperMath
                     maxProbCount = p.Values.Count();
             }
             int ansStart = vstartX + maxProbCount * 40;
+            //int rgb = new Random().Next(Int32.MinValue, Int32.MaxValue);
             for(int p = 0; p < Stage.Problems.Count(); p++)
             {
                 incX = 0; 
                 for(int v = 0; v < Stage.Problems[p].Values.Count(); v++)
                 {
                     lblBase = new Label();
+                    //lblBase.ForeColor = Color.FromArgb(rgb);
+                    //lblBase.BackColor = Color.FromArgb(-rgb);
                     lblBase.Size = new System.Drawing.Size(25, 25);
                     lblBase.Text = Stage.Problems[p].Values[v].ToString();
                     lblBase.Name = "lbl_Val" + v + "_Prob" + p;
@@ -53,6 +58,8 @@ namespace SuperMath
                 for(int o = 0; o < Stage.Problems[p].Operators.Count(); o++)
                 {
                     lblBase = new Label();
+                    //lblBase.ForeColor = Color.FromArgb(rgb);
+                    //lblBase.BackColor = Color.FromArgb(-rgb);
                     lblBase.Size = new System.Drawing.Size(25, 25);
                     lblBase.Text = Stage.Problems[p].Operators[o].OperatorToString();
                     lblBase.Name = "lbl_Op" + o + "_Prob" + p;
@@ -61,7 +68,8 @@ namespace SuperMath
                     this.pnlGame.Controls.Add(lblBase);
                     incX += 40;
                 }
-
+                //rgb = new Random().Next(Int32.MinValue,Int32.MaxValue);
+                //Thread.Sleep(10);
                 answer = new TextBox();
                 answer.TabIndex = p;
                 answer.Text = "0";
@@ -146,13 +154,13 @@ namespace SuperMath
             return Difficulty.EASY;
         }
 
-        private void PrepareDifficultyScreen(bool adult)
+        private void PrepareDifficultyScreen()
         {
-            this.rdEASY.Text = Difficulty.EASY.DifficultyToString(adult);
-            this.rdMED.Text = Difficulty.NORMAL.DifficultyToString(adult);
-            this.rdHARD.Text = Difficulty.HARD.DifficultyToString(adult);
-            this.rdVHARD.Text = Difficulty.VERY_HARD.DifficultyToString(adult);
-            this.rdIMP.Text = Difficulty.IMPOSSIBLE.DifficultyToString(adult);
+            this.rdEASY.Text = Difficulty.EASY.DifficultyToString(this.AdultMode);
+            this.rdMED.Text = Difficulty.NORMAL.DifficultyToString(this.AdultMode);
+            this.rdHARD.Text = Difficulty.HARD.DifficultyToString(this.AdultMode);
+            this.rdVHARD.Text = Difficulty.VERY_HARD.DifficultyToString(this.AdultMode);
+            this.rdIMP.Text = Difficulty.IMPOSSIBLE.DifficultyToString(this.AdultMode);
         }
     }
 }

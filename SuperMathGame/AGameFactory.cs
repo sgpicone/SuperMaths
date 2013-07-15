@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperMathDifficulty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace SuperMathGame
 {
-    public class AGameFactory
+    public abstract class AGameFactory
     {
-        public void NewGame(GameMode type, bool adult)
-        {
-            AGame game = CreateGame(type, adult);
-        }
+        //public void NewGame(GameMode type, bool adult)
+        //{
+        //    AGame game = CreateGame(type, adult);
+        //}
 
-        protected abstract AGame CreateGame(GameMode type, bool adult);
+        protected abstract AGame CreateGame(Difficulty diff, bool adult);
     }
 }

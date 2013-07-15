@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SuperMathGame
 {
-    class CampaignGameFactory : AGameFactory
+    public class CampaignGameFactory : AGameFactory
     {
-        public AGame CreateGame()
+        protected override AGame CreateGame(SuperMathDifficulty.Difficulty diff, bool adult)
         {
-            return new CampaignGame();
+            throw new NotImplementedException();
         }
     }
 }

@@ -8,6 +8,15 @@ namespace SuperMathGame
 {
     class CampaignGame : AGame
     {
+        public CampaignGame(bool adult)
+        {
+            this.Adult = adult;
+            this.gameMode = GameMode.CAMPAIGN;
+        }
 
+        protected override void PrepareGame(SuperMathDifficulty.Difficulty diff)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

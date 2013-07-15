@@ -12,7 +12,8 @@ namespace SuperMathGame
     {
         protected GameMode gameMode;
         protected bool Adult; //if adult mode is on or off
+        protected Difficulty Difficulty;
 
-
+        protected abstract void PrepareGame(Difficulty diff);
     }
 }

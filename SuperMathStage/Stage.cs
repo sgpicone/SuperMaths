@@ -28,12 +28,13 @@ namespace SuperMathStage
 
         public override void PrepareStage()
         {
+            Random rgen = new Random();
             this.Answers = new List<double>(NumberOfProblemsDifficulty.StageNumberProblemsDifficulty());
             this.Problems = new List<AProblem>(NumberOfProblemsDifficulty.StageNumberProblemsDifficulty());
             this.TimeLimit = this.TimeDifficulty.StageTimeDifficulty();
             for (int i = 0; i < this.Problems.Capacity; i++)
             {
-                Problems.Add(new Problem(this.NumberOfProblemsDifficulty));
+                Problems.Add(new Problem(this.NumberOfProblemsDifficulty, rgen));
             }
         }
 

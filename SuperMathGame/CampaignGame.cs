@@ -8,9 +8,8 @@ namespace SuperMathGame
 {
     class CampaignGame : AGame
     {
-        public CampaignGame(bool adult)
+        public CampaignGame()
         {
-            this.Adult = adult;
             this.gameMode = GameMode.CAMPAIGN;
         }
 

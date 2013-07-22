@@ -9,20 +9,16 @@ namespace SuperMathGame
     class MarathonGame : AGame
     {
         private SuperMathDifficulty.Difficulty diff;
-        private bool adult;
 
-
-        public MarathonGame(bool adult)
+        public MarathonGame()
         {
-            this.Adult = adult;
             this.gameMode = GameMode.MARATHON;
         }
 
-        public MarathonGame(SuperMathDifficulty.Difficulty diff, bool adult)
+        public MarathonGame(SuperMathDifficulty.Difficulty diff)
         {
             // TODO: Complete member initialization
             this.diff = diff;
-            this.adult = adult;
         }
 
         protected override void PrepareGame(SuperMathDifficulty.Difficulty diff)

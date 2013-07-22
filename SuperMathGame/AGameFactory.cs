@@ -14,6 +14,6 @@ namespace SuperMathGame
         //    AGame game = CreateGame(type, adult);
         //}
 
-        protected abstract AGame CreateGame(Difficulty diff, bool adult);
+        protected abstract AGame CreateGame(Difficulty diff);
     }
 }

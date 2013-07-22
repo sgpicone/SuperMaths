@@ -9,9 +9,9 @@ namespace SuperMathGame
 {
     class MarathonGameFactory : AGameFactory
     {
-        protected override AGame CreateGame(Difficulty diff, bool adult)
+        protected override AGame CreateGame(Difficulty diff)
         {
-            return new MarathonGame(diff, adult);
+            return new MarathonGame(diff);
         }
     }
 }

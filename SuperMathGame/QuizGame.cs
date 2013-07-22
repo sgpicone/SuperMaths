@@ -9,9 +9,8 @@ namespace SuperMathGame
 {
     class QuizGame : AGame
     {
-        public QuizGame(Difficulty diff, bool adult)
+        public QuizGame(Difficulty diff)
         {
-            this.Adult = adult;
             this.gameMode = GameMode.QUIZ;
             PrepareGame(diff);
         }

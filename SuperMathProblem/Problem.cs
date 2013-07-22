@@ -11,8 +11,9 @@ namespace SuperMathProblem
 {
     public class Problem : AProblem
     {
-        public Problem(Difficulty diff)
+        public Problem(Difficulty diff, Random rgen)
         {
+            this.RandomGenerator = rgen;
             this.Difficulty = diff;
             Create();
         }

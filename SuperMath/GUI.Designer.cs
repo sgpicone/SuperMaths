@@ -1,4 +1,5 @@
-﻿namespace SuperMath
+﻿using SuperMathStage;
+namespace SuperMath
 {
     partial class GUI
     {
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnQuickGame = new System.Windows.Forms.Button();
@@ -35,18 +37,23 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.pnlGame = new System.Windows.Forms.Panel();
             this.pnlDifficultySelect = new System.Windows.Forms.Panel();
-            this.btnSelectDiff = new System.Windows.Forms.Button();
-            this.lblDiffSelectTitle = new System.Windows.Forms.Label();
-            this.rdIMP = new System.Windows.Forms.RadioButton();
-            this.rdVHARD = new System.Windows.Forms.RadioButton();
-            this.rdHARD = new System.Windows.Forms.RadioButton();
-            this.rdMED = new System.Windows.Forms.RadioButton();
-            this.rdEASY = new System.Windows.Forms.RadioButton();
+            this.btnDiffPnlBack = new System.Windows.Forms.Button();
+            this.btnDiffPnlSelectDiff = new System.Windows.Forms.Button();
+            this.lblDiffPnlDiffSelectTitle = new System.Windows.Forms.Label();
+            this.rdDiffPnlIMP = new System.Windows.Forms.RadioButton();
+            this.rdDiffPnlVHARD = new System.Windows.Forms.RadioButton();
+            this.rdDiffPnlHARD = new System.Windows.Forms.RadioButton();
+            this.rdDiffPnlMED = new System.Windows.Forms.RadioButton();
+            this.rdDiffPnlEASY = new System.Windows.Forms.RadioButton();
+            this.pnlStartQuiz = new System.Windows.Forms.Panel();
+            this.btnStrtPnlStartQuiz = new System.Windows.Forms.Button();
             this.pnlSettings = new System.Windows.Forms.Panel();
-            this.chkAdultMode = new System.Windows.Forms.CheckBox();
             this.btnBackToMenu = new System.Windows.Forms.Button();
+            this.chkAdultMode = new System.Windows.Forms.CheckBox();
+            this.tmrGameTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlMain.SuspendLayout();
             this.pnlDifficultySelect.SuspendLayout();
+            this.pnlStartQuiz.SuspendLayout();
             this.pnlSettings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,93 +117,123 @@
             // 
             // pnlDifficultySelect
             // 
-            this.pnlDifficultySelect.Controls.Add(this.btnSelectDiff);
-            this.pnlDifficultySelect.Controls.Add(this.lblDiffSelectTitle);
-            this.pnlDifficultySelect.Controls.Add(this.rdIMP);
-            this.pnlDifficultySelect.Controls.Add(this.rdVHARD);
-            this.pnlDifficultySelect.Controls.Add(this.rdHARD);
-            this.pnlDifficultySelect.Controls.Add(this.rdMED);
-            this.pnlDifficultySelect.Controls.Add(this.rdEASY);
+            this.pnlDifficultySelect.Controls.Add(this.btnDiffPnlBack);
+            this.pnlDifficultySelect.Controls.Add(this.btnDiffPnlSelectDiff);
+            this.pnlDifficultySelect.Controls.Add(this.lblDiffPnlDiffSelectTitle);
+            this.pnlDifficultySelect.Controls.Add(this.rdDiffPnlIMP);
+            this.pnlDifficultySelect.Controls.Add(this.rdDiffPnlVHARD);
+            this.pnlDifficultySelect.Controls.Add(this.rdDiffPnlHARD);
+            this.pnlDifficultySelect.Controls.Add(this.rdDiffPnlMED);
+            this.pnlDifficultySelect.Controls.Add(this.rdDiffPnlEASY);
             this.pnlDifficultySelect.Location = new System.Drawing.Point(12, 47);
             this.pnlDifficultySelect.Name = "pnlDifficultySelect";
             this.pnlDifficultySelect.Size = new System.Drawing.Size(915, 587);
             this.pnlDifficultySelect.TabIndex = 0;
             // 
-            // btnSelectDiff
+            // btnDiffPnlBack
             // 
-            this.btnSelectDiff.Location = new System.Drawing.Point(418, 346);
-            this.btnSelectDiff.Name = "btnSelectDiff";
-            this.btnSelectDiff.Size = new System.Drawing.Size(85, 23);
-            this.btnSelectDiff.TabIndex = 6;
-            this.btnSelectDiff.Text = "Start Game";
-            this.btnSelectDiff.UseVisualStyleBackColor = true;
-            this.btnSelectDiff.Click += new System.EventHandler(this.btnSelectDiff_Click);
+            this.btnDiffPnlBack.Location = new System.Drawing.Point(824, 564);
+            this.btnDiffPnlBack.Name = "btnDiffPnlBack";
+            this.btnDiffPnlBack.Size = new System.Drawing.Size(88, 23);
+            this.btnDiffPnlBack.TabIndex = 7;
+            this.btnDiffPnlBack.Text = "Back to Menu";
+            this.btnDiffPnlBack.UseVisualStyleBackColor = true;
+            this.btnDiffPnlBack.Click += new System.EventHandler(this.btnDiffPnlBack_Click);
             // 
-            // lblDiffSelectTitle
+            // btnDiffPnlSelectDiff
             // 
-            this.lblDiffSelectTitle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblDiffSelectTitle.Location = new System.Drawing.Point(415, 203);
-            this.lblDiffSelectTitle.Name = "lblDiffSelectTitle";
-            this.lblDiffSelectTitle.Size = new System.Drawing.Size(100, 23);
-            this.lblDiffSelectTitle.TabIndex = 5;
-            this.lblDiffSelectTitle.Text = "Select Difficulty";
-            this.lblDiffSelectTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDiffPnlSelectDiff.Location = new System.Drawing.Point(418, 346);
+            this.btnDiffPnlSelectDiff.Name = "btnDiffPnlSelectDiff";
+            this.btnDiffPnlSelectDiff.Size = new System.Drawing.Size(85, 23);
+            this.btnDiffPnlSelectDiff.TabIndex = 6;
+            this.btnDiffPnlSelectDiff.Text = "Start Game";
+            this.btnDiffPnlSelectDiff.UseVisualStyleBackColor = true;
+            this.btnDiffPnlSelectDiff.Click += new System.EventHandler(this.btnSelectDiff_Click);
             // 
-            // rdIMP
+            // lblDiffPnlDiffSelectTitle
             // 
-            this.rdIMP.AutoSize = true;
-            this.rdIMP.Location = new System.Drawing.Point(418, 323);
-            this.rdIMP.Name = "rdIMP";
-            this.rdIMP.Size = new System.Drawing.Size(85, 17);
-            this.rdIMP.TabIndex = 4;
-            this.rdIMP.TabStop = true;
-            this.rdIMP.Text = "radioButton5";
-            this.rdIMP.UseVisualStyleBackColor = true;
+            this.lblDiffPnlDiffSelectTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblDiffPnlDiffSelectTitle.Location = new System.Drawing.Point(415, 203);
+            this.lblDiffPnlDiffSelectTitle.Name = "lblDiffPnlDiffSelectTitle";
+            this.lblDiffPnlDiffSelectTitle.Size = new System.Drawing.Size(100, 23);
+            this.lblDiffPnlDiffSelectTitle.TabIndex = 5;
+            this.lblDiffPnlDiffSelectTitle.Text = "Select Difficulty";
+            this.lblDiffPnlDiffSelectTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rdVHARD
+            // rdDiffPnlIMP
             // 
-            this.rdVHARD.AutoSize = true;
-            this.rdVHARD.Location = new System.Drawing.Point(418, 298);
-            this.rdVHARD.Name = "rdVHARD";
-            this.rdVHARD.Size = new System.Drawing.Size(85, 17);
-            this.rdVHARD.TabIndex = 3;
-            this.rdVHARD.TabStop = true;
-            this.rdVHARD.Text = "radioButton4";
-            this.rdVHARD.UseVisualStyleBackColor = true;
+            this.rdDiffPnlIMP.AutoSize = true;
+            this.rdDiffPnlIMP.Location = new System.Drawing.Point(418, 323);
+            this.rdDiffPnlIMP.Name = "rdDiffPnlIMP";
+            this.rdDiffPnlIMP.Size = new System.Drawing.Size(85, 17);
+            this.rdDiffPnlIMP.TabIndex = 4;
+            this.rdDiffPnlIMP.TabStop = true;
+            this.rdDiffPnlIMP.Text = "radioButton5";
+            this.rdDiffPnlIMP.UseVisualStyleBackColor = true;
             // 
-            // rdHARD
+            // rdDiffPnlVHARD
             // 
-            this.rdHARD.AutoSize = true;
-            this.rdHARD.Location = new System.Drawing.Point(418, 275);
-            this.rdHARD.Name = "rdHARD";
-            this.rdHARD.Size = new System.Drawing.Size(85, 17);
-            this.rdHARD.TabIndex = 2;
-            this.rdHARD.TabStop = true;
-            this.rdHARD.Text = "radioButton3";
-            this.rdHARD.UseVisualStyleBackColor = true;
+            this.rdDiffPnlVHARD.AutoSize = true;
+            this.rdDiffPnlVHARD.Location = new System.Drawing.Point(418, 298);
+            this.rdDiffPnlVHARD.Name = "rdDiffPnlVHARD";
+            this.rdDiffPnlVHARD.Size = new System.Drawing.Size(85, 17);
+            this.rdDiffPnlVHARD.TabIndex = 3;
+            this.rdDiffPnlVHARD.TabStop = true;
+            this.rdDiffPnlVHARD.Text = "radioButton4";
+            this.rdDiffPnlVHARD.UseVisualStyleBackColor = true;
             // 
-            // rdMED
+            // rdDiffPnlHARD
             // 
-            this.rdMED.AutoSize = true;
-            this.rdMED.Location = new System.Drawing.Point(418, 252);
-            this.rdMED.Name = "rdMED";
-            this.rdMED.Size = new System.Drawing.Size(85, 17);
-            this.rdMED.TabIndex = 1;
-            this.rdMED.TabStop = true;
-            this.rdMED.Text = "radioButton2";
-            this.rdMED.UseVisualStyleBackColor = true;
+            this.rdDiffPnlHARD.AutoSize = true;
+            this.rdDiffPnlHARD.Location = new System.Drawing.Point(418, 275);
+            this.rdDiffPnlHARD.Name = "rdDiffPnlHARD";
+            this.rdDiffPnlHARD.Size = new System.Drawing.Size(85, 17);
+            this.rdDiffPnlHARD.TabIndex = 2;
+            this.rdDiffPnlHARD.TabStop = true;
+            this.rdDiffPnlHARD.Text = "radioButton3";
+            this.rdDiffPnlHARD.UseVisualStyleBackColor = true;
             // 
-            // rdEASY
+            // rdDiffPnlMED
             // 
-            this.rdEASY.AutoSize = true;
-            this.rdEASY.Checked = true;
-            this.rdEASY.Location = new System.Drawing.Point(418, 229);
-            this.rdEASY.Name = "rdEASY";
-            this.rdEASY.Size = new System.Drawing.Size(85, 17);
-            this.rdEASY.TabIndex = 0;
-            this.rdEASY.TabStop = true;
-            this.rdEASY.Text = "radioButton1";
-            this.rdEASY.UseVisualStyleBackColor = true;
+            this.rdDiffPnlMED.AutoSize = true;
+            this.rdDiffPnlMED.Location = new System.Drawing.Point(418, 252);
+            this.rdDiffPnlMED.Name = "rdDiffPnlMED";
+            this.rdDiffPnlMED.Size = new System.Drawing.Size(85, 17);
+            this.rdDiffPnlMED.TabIndex = 1;
+            this.rdDiffPnlMED.TabStop = true;
+            this.rdDiffPnlMED.Text = "radioButton2";
+            this.rdDiffPnlMED.UseVisualStyleBackColor = true;
+            // 
+            // rdDiffPnlEASY
+            // 
+            this.rdDiffPnlEASY.AutoSize = true;
+            this.rdDiffPnlEASY.Checked = true;
+            this.rdDiffPnlEASY.Location = new System.Drawing.Point(418, 229);
+            this.rdDiffPnlEASY.Name = "rdDiffPnlEASY";
+            this.rdDiffPnlEASY.Size = new System.Drawing.Size(85, 17);
+            this.rdDiffPnlEASY.TabIndex = 0;
+            this.rdDiffPnlEASY.TabStop = true;
+            this.rdDiffPnlEASY.Text = "radioButton1";
+            this.rdDiffPnlEASY.UseVisualStyleBackColor = true;
+            // 
+            // pnlStartQuiz
+            // 
+            this.pnlStartQuiz.AutoScroll = true;
+            this.pnlStartQuiz.Controls.Add(this.btnStrtPnlStartQuiz);
+            this.pnlStartQuiz.Location = new System.Drawing.Point(12, 47);
+            this.pnlStartQuiz.Name = "pnlStartQuiz";
+            this.pnlStartQuiz.Size = new System.Drawing.Size(915, 587);
+            this.pnlStartQuiz.TabIndex = 0;
+            // 
+            // btnStrtPnlStartQuiz
+            // 
+            this.btnStrtPnlStartQuiz.Location = new System.Drawing.Point(420, 282);
+            this.btnStrtPnlStartQuiz.Name = "btnStrtPnlStartQuiz";
+            this.btnStrtPnlStartQuiz.Size = new System.Drawing.Size(75, 23);
+            this.btnStrtPnlStartQuiz.TabIndex = 0;
+            this.btnStrtPnlStartQuiz.Text = "Start Quiz";
+            this.btnStrtPnlStartQuiz.UseVisualStyleBackColor = true;
+            this.btnStrtPnlStartQuiz.Click += new System.EventHandler(this.btnStrtPnlStartQuiz_Click);
             // 
             // pnlSettings
             // 
@@ -206,6 +243,16 @@
             this.pnlSettings.Name = "pnlSettings";
             this.pnlSettings.Size = new System.Drawing.Size(915, 587);
             this.pnlSettings.TabIndex = 0;
+            // 
+            // btnBackToMenu
+            // 
+            this.btnBackToMenu.Location = new System.Drawing.Point(806, 561);
+            this.btnBackToMenu.Name = "btnBackToMenu";
+            this.btnBackToMenu.Size = new System.Drawing.Size(106, 23);
+            this.btnBackToMenu.TabIndex = 1;
+            this.btnBackToMenu.Text = "Back to Menu";
+            this.btnBackToMenu.UseVisualStyleBackColor = true;
+            this.btnBackToMenu.Click += new System.EventHandler(this.btnBackToMenu_Click);
             // 
             // chkAdultMode
             // 
@@ -218,15 +265,10 @@
             this.chkAdultMode.UseVisualStyleBackColor = true;
             this.chkAdultMode.CheckedChanged += new System.EventHandler(this.chkAdultMode_CheckedChanged);
             // 
-            // btnBackToMenu
+            // tmrGameTimer
             // 
-            this.btnBackToMenu.Location = new System.Drawing.Point(806, 561);
-            this.btnBackToMenu.Name = "btnBackToMenu";
-            this.btnBackToMenu.Size = new System.Drawing.Size(106, 23);
-            this.btnBackToMenu.TabIndex = 1;
-            this.btnBackToMenu.Text = "Back to Menu";
-            this.btnBackToMenu.UseVisualStyleBackColor = true;
-            this.btnBackToMenu.Click += new System.EventHandler(this.btnBackToMenu_Click);
+            this.tmrGameTimer.Interval = 1000;
+            this.tmrGameTimer.Tick += new System.EventHandler(this.tmrGameTimer_Tick);
             // 
             // GUI
             // 
@@ -234,41 +276,49 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 646);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlGame);
+            this.Controls.Add(this.pnlStartQuiz);
+            this.Controls.Add(this.pnlDifficultySelect);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.pnlGame);
-            this.Controls.Add(this.pnlDifficultySelect);
             this.Name = "GUI";
             this.Text = "GUI";
             this.Load += new System.EventHandler(this.GUI_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlDifficultySelect.ResumeLayout(false);
             this.pnlDifficultySelect.PerformLayout();
+            this.pnlStartQuiz.ResumeLayout(false);
             this.pnlSettings.ResumeLayout(false);
             this.pnlSettings.PerformLayout();
             this.ResumeLayout(false);
 
         }
-
         #endregion
         private bool AdultMode;
+        private int StageTimer;
+        private AStage Stage;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.Panel pnlGame;
         private System.Windows.Forms.Panel pnlDifficultySelect;
+        private System.Windows.Forms.Panel pnlStartQuiz;
         private System.Windows.Forms.Button btnQuickGame;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.Label lblDiffSelectTitle;
-        private System.Windows.Forms.RadioButton rdIMP;
-        private System.Windows.Forms.RadioButton rdVHARD;
-        private System.Windows.Forms.RadioButton rdHARD;
-        private System.Windows.Forms.RadioButton rdMED;
-        private System.Windows.Forms.RadioButton rdEASY;
-        private System.Windows.Forms.Button btnSelectDiff;
+        private System.Windows.Forms.Label lblDiffPnlDiffSelectTitle;
+        private System.Windows.Forms.RadioButton rdDiffPnlIMP;
+        private System.Windows.Forms.RadioButton rdDiffPnlVHARD;
+        private System.Windows.Forms.RadioButton rdDiffPnlHARD;
+        private System.Windows.Forms.RadioButton rdDiffPnlMED;
+        private System.Windows.Forms.RadioButton rdDiffPnlEASY;
+        private System.Windows.Forms.Button btnDiffPnlSelectDiff;
         private System.Windows.Forms.CheckBox chkAdultMode;
         private System.Windows.Forms.Button btnBackToMenu;
+        private System.Windows.Forms.Button btnDiffPnlBack;
+        private System.Windows.Forms.Button btnStrtPnlStartQuiz;
+        private System.Windows.Forms.Timer tmrGameTimer;
+        private System.Windows.Forms.Label lblTimer;
     }
 }
 

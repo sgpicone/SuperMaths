@@ -14,7 +14,6 @@ namespace SuperMathStage
 {
     public abstract class AStage
     {
-        protected int TimeLimit;
         protected int PointsAwarded;
 
         private List<double> _Answers;
@@ -70,6 +69,13 @@ namespace SuperMathStage
         {
             get { return _DistractionsDifficulty; }
             protected set { _DistractionsDifficulty = value; }
+        }
+
+        private int _TimeLimit;
+        public int TimeLimit
+        {
+            get { return _TimeLimit; }
+            set { _TimeLimit = value; }
         }
 
         /// <summary>

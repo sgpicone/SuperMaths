@@ -8,7 +8,7 @@ namespace SuperMathGame
 {
     public class CampaignGameFactory : AGameFactory
     {
-        protected override AGame CreateGame(SuperMathDifficulty.Difficulty diff, bool adult)
+        protected override AGame CreateGame(SuperMathDifficulty.Difficulty diff)
         {
             throw new NotImplementedException();
         }

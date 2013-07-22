@@ -13,7 +13,7 @@ namespace SuperMathProblem
     public abstract class AProblem
     {
         protected const int MIN_VALUES = 2;
-        protected Random RandomGenerator = new Random(); 
+        protected Random RandomGenerator; 
 
         private List<long> _Values;
         public List<long> Values
@@ -100,7 +100,7 @@ namespace SuperMathProblem
                 Points -= opValue;
                 maxAllowedOpPoints -= opValue / 2;
                 Operators.Add(op);
-                Thread.Sleep(50);
+                //Thread.Sleep(50);
             }
         }
 
@@ -114,9 +114,9 @@ namespace SuperMathProblem
             {
                 if (i < Operators.Count && Operators[i] == Operator.DIV)
                 {
-                    int divisor = new Random().Next(2, maxAllowedValue / 10);
-                    Thread.Sleep(50);
-                    int tempQuot = new Random().Next(2, maxAllowedValue / 10);
+                    int divisor = RandomGenerator.Next(2, maxAllowedValue / 10);
+                    //Thread.Sleep(50);
+                    int tempQuot = RandomGenerator.Next(2, maxAllowedValue / 10);
                     int dividend = divisor * tempQuot;
                     Values.Add(dividend);
                     Values.Add(divisor);
@@ -127,9 +127,9 @@ namespace SuperMathProblem
                 }
                 else if ((i < Operators.Count && Operators[i] == Operator.MULT) || ((i > 0 && i < Operators.Capacity) && Operators[i - 1] == Operator.MULT))
                 {
-                    int multiplicand = new Random().Next(2, maxAllowedValue / 8);
-                    Thread.Sleep(50);
-                    int multiplier = new Random().Next(2, maxAllowedValue / 8);
+                    int multiplicand = RandomGenerator.Next(2, maxAllowedValue / 8);
+                    //Thread.Sleep(50);
+                    int multiplier = RandomGenerator.Next(2, maxAllowedValue / 8);
                     Values.Add(multiplicand);
                     Values.Add(multiplier);
                     i++;
@@ -144,7 +144,7 @@ namespace SuperMathProblem
                     Values.Add(value);
                     maxAllowedValue -= pointsRemoved;
                 }
-                Thread.Sleep(50);
+                //Thread.Sleep(50);
             }
         }
 
